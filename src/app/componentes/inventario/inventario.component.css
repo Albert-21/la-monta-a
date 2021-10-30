@@ -1,0 +1,32 @@
+/* menu Cards*/
+.menu-cards {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 25px;
+  margin: auto;
+  width: 90%;
+  padding: 40px 0;
+  text-align: center;
+}
+
+.menu-cards img {
+  width: 80%;
+  height: 220px;
+  border-radius: 9px;
+}
+
+.menu-cards h3 {
+  font-size: 20px;
+  margin: 10px 0;
+}
+.menu-cards a{
+  padding: 10px 0;
+  color: #3E48C2;
+  text-transform: uppercase;
+  display: inline-block;
+  font-weight: bold;
+}
+.menu-cards a:hover{
+  opacity: .7;
+  text-decoration: underline;
+}

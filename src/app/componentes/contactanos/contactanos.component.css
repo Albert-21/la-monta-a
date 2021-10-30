@@ -1,0 +1,89 @@
+/*Slider stilos*/
+.slider
+{
+  width: 100%;
+  height: 750px;
+  overflow: hidden;
+}
+
+.slider .slider-list{
+  display: flex;
+  animation: cambio 14s infinite
+  alternate linear;
+  width: 600%;
+}
+
+.slider .slider-item{
+  width: 100%;
+  list-style: none;
+}
+
+.slider .slider-img{
+  object-fit: cover;
+  width: 100%;
+  height: 75%;
+}
+
+@keyframes cambio {
+  0%{margin-left: 0;}
+  9%{margin-left: 0;}
+
+  18%{margin-left: -100%;}
+  27%{margin-left: -100%;}
+
+  36%{margin-left: -200%;}
+  45%{margin-left: -200%;}
+
+  54%{margin-left: -300%;}
+  63%{margin-left: -300%;}
+
+  72%{margin-left: -400%;}
+  81%{margin-left: -400%;}
+
+  90%{margin-left: -500%;}
+  100%{margin-left: -500%;}
+}
+
+/*body home stilos*/
+.body-home{
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.body-home .body-img{
+  width: 26%;
+}
+
+.body-text {
+  margin-bottom: 20px;
+  padding: 10px;
+}
+
+.body-text .contactanos-titulos {
+  color: #000000;
+  letter-spacing: 8px;
+  text-align: center;
+  font-size: 1.6rem;
+  padding: 20px 0;
+}
+
+.contactanos-info p,a{
+  text-decoration: none;
+  color: #000000;
+}
+
+.contactanos-info .contactanos-ubicacion:hover{
+  cursor: pointer;
+  box-shadow: .5px .5px .5px .5px rgba(0, 0, 0, 0.5);
+}
+
+.contactanos-subtitulos{
+  font-weight: 600;
+}
+
+.redesociales-links:hover{
+  cursor: pointer;
+  box-shadow: .5px .5px .5px .5px rgba(0, 0, 0, 0.5);
+}

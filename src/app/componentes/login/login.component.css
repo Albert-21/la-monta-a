@@ -1,0 +1,78 @@
+.card-container.card {
+  max-width: 550px;
+  height: 550px;
+  padding: 40px 40px;
+}
+
+.btn {
+  padding: 10px;
+  font-weight: 700;
+  height: 36px;
+}
+
+.checkbox{
+  padding: 10px;
+}
+
+/*
+ * Card component
+ */
+.card {
+  background-color: #F7F7F7;
+  /* just in case there no content*/
+  padding: 20px 25px 30px;
+  margin: 0 auto 25px;
+  margin-top: 50px;
+  /* shadows and rounded borders */
+  border-radius: 6px;
+  box-shadow: 3px 3px 3px 3px rgba(0, 0, 0, 0.25);
+}
+
+.profile-img-card {
+  width: 175px;
+  height: 175px;
+  margin: 0 auto 10px;
+  display: block;
+  border-radius: 50%;
+}
+
+/*
+ * Form styles
+ */
+.profile-name-card {
+  font-size: 1rem;
+  font-weight: bold;
+  text-align: center;
+  margin: 15px 0 0;
+  min-height: 1em;
+}
+
+.form-signin #inputEmail,
+.form-signin #inputPassword {
+  direction: ltr;
+  height: 45px;
+  font-size: 1rem;
+}
+
+.form-signin input[type=email],
+.form-signin input[type=password],
+.form-signin input[type=text],
+.form-signin button {
+  width: 100%;
+  display: block;
+  margin-bottom: 20px;
+  z-index: 1;
+  position: relative;
+  box-sizing: border-box;
+}
+
+.btn.btn-signin {
+  background-color: #307BE1;
+  padding: 0px;
+  font-weight: 500;
+  font-size: 1.1rem;
+  height: 45px;
+  border-radius: 6px;
+  transition: all 0.218s;
+}
+

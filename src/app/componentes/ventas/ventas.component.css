@@ -1,0 +1,83 @@
+.ventas-mesa{
+  width: 90%;
+  margin: auto;
+}
+
+.titulo-venta{
+  text-align: center;
+  font-size: 1.8rem;
+  padding: 20px 0;
+  letter-spacing: 10px;
+  font-weight: bolder;
+}
+
+.tabla-ventas{
+  box-shadow: 3px 3px 3px 3px rgba(0, 0, 0, 0.25);
+  border-radius: 6px;
+}
+
+/* menu Cards*/
+.menu-cards {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 25px;
+  margin: auto;
+  width: 90%;
+  padding: 40px 0;
+  text-align: center;
+}
+
+.menu-cards img {
+  width: 80%;
+  height: 220px;
+  border-radius: 9px;
+}
+
+.menu-cards h3 {
+  font-size: 20px;
+  margin: 10px 0;
+}
+.menu-cards a{
+  padding: 10px 0;
+  color: #3E48C2;
+  text-transform: uppercase;
+  display: inline-block;
+  font-weight: bold;
+}
+.menu-cards a:hover{
+  opacity: .7;
+  text-decoration: underline;
+}
+
+/* mesas Cards*/
+.mesas-cards-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 25px;
+  margin: auto;
+  width: 90%;
+  padding: 0;
+  text-align: center;
+}
+
+.mesas-cards-container img {
+  width: 30%;
+  height: 140px;
+  border-radius: 9px;
+}
+
+.mesas-cards-container h3 {
+  font-size: 20px;
+  margin: 10px 0;
+}
+.mesas-cards-container a{
+  padding: 10px 0;
+  color: #3E48C2;
+  text-transform: uppercase;
+  display: inline-block;
+  font-weight: bold;
+}
+.mesas-cards-container a:hover{
+  opacity: .7;
+  text-decoration: underline;
+}

@@ -1,0 +1,59 @@
+<div class="menu-cards">
+  <div>
+    <img src="assets/img/img-35.jpg" alt="News 2">
+    <h3>Ventas Totales</h3>
+    <p>$ {{totalVendido}} pesos</p>
+  </div>
+  <div>
+    <img src="assets/img/img-36.png" alt="News 3">
+    <h3>Fecha Actual</h3>
+    <p>Hoy es {{date.toLocaleDateString()}}</p>
+  </div>
+  <div>
+    <img src="assets/img/img-34.jpg" alt="News 4">
+    <h3>Ventas</h3>
+    <p>Gestión y consulta de ventas desde aqui</p>
+    <a routerLink="/ventas">Conocer más<i class="fas fa-angle-double-right "></i></a>
+  </div>
+</div>
+
+<div class="col-12">
+  <h2>Productos</h2>
+  <a class="btn btn-success mb-2" (click)="Guardar()">Agregar</a>
+  <div class="table-responsive">
+    <table class="table table-bordered">
+      <thead>
+      <tr>
+        <th>ID</th>
+        <th>Nombre</th>
+        <th>Tipo</th>
+        <th>Precio</th>
+        <th>Piezas</th>
+        <th>Editar</th>
+        <th>Eliminar</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let item of productos;let i = index">
+        <td *ngIf="false" [(ngModel)]="idProducto">{{i}}</td>
+        <td [(ngModel)]="ProductoEdit.IdProducto">{{item.IdProducto}}</td>
+        <td [(ngModel)]="ProductoEdit.Nombre">{{item.Nombre}}</td>
+        <td [(ngModel)]="ProductoEdit.Tipo">{{item.Tipo}}</td>
+        <td [(ngModel)]="ProductoEdit.Precio">{{item.Precio}}</td>
+        <td [(ngModel)]="ProductoEdit.Piezas">{{item.Piezas}}</td>
+        <td>
+          <a class="btn btn-warning" (click)="editar()" >Editar <i class="fa fa-edit"></i></a>
+        </td>
+        <td>
+          <form>
+            <input type="hidden" name="id"/>
+            <button type="submit" class="btn btn-danger" (click)="eliminar()">Eliminar <i class="fa fa-trash"></i>
+            </button>
+          </form>
+        </td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+<footer-component></footer-component>

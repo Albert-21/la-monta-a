@@ -1,0 +1,31 @@
+.ubicacion-container{
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  margin-top: 50px;
+}
+
+.ubicacion-titulos{
+  text-align: center;
+  letter-spacing: 40px;
+  padding: 50px 0;
+  font-size: 1.7rem;
+}
+
+.ubicacion-subtitulos{
+  margin-top: 20px;
+  text-align: center;
+  padding: 50px;
+  font-size: 1.5rem;
+}
+
+.logo{
+  margin: auto;
+  margin-left: 80px;
+  width: 90%;
+}
+
+.ubicacion-links{
+  text-decoration: none;
+  color: #000000;
+}

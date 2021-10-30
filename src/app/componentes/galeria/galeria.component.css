@@ -1,0 +1,44 @@
+.galeria-contenedor{
+  width: 95%;
+  margin: 0 auto;
+  text-align: center;
+  padding-bottom: 10px;
+}
+
+.galeria-titulo{
+  text-align: center;
+  letter-spacing: 4.2rem;
+  padding: 50px 0;
+  font-size: 1.7rem;
+}
+
+
+.galeria-contenedor .galeria-item{
+  width: 25%;
+  height: 35%;
+  padding: 20px;
+}
+
+.galeria-contenedor .galeria-item:hover{
+  cursor: pointer;
+  opacity: .50;
+  box-shadow: .5px .5px .5px .5px rgba(0, 0, 0, 0.15);
+}
+
+.circular--square {
+  border-radius: 45%;
+}
+
+.circle{
+  width:100px;
+  height:100px;
+  border-radius:50px;
+  font-size:20px;
+  color:#fff;
+  line-height:100px;
+  text-align:center;
+  background:#000
+}
+
+
+

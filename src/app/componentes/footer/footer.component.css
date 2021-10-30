@@ -1,0 +1,36 @@
+.footer-contenedor{
+  background-color: #07AB4C;
+  opacity: .88;
+  color: #fff;
+  width: 100%;
+  height: auto;
+}
+
+.titulo-footer{
+  font-size: 1.3rem;
+  padding: 25px .4rem;
+  text-align: center;
+}
+
+.nav{
+  height: 100px;
+  margin-left: 140px;
+  line-height: 50px;
+}
+
+.nav-item{
+  cursor: pointer;
+  padding: 0 40px;
+}
+
+.nav-link{
+  color: #fff;
+  font-weight: 400;
+}
+
+.nav-link:hover{
+  opacity: .88;
+  border-bottom: 3px solid #ffffff;
+}
+
+

@@ -1,0 +1,17 @@
+.menu-titulo{
+  text-align: center;
+  letter-spacing: 4rem;
+  padding: 50px;
+  font-size: 1.7rem;
+}
+
+.menu-contenedor{
+  padding: 50px;
+  margin-left: 100px;
+}
+
+.menu-contenedor .logo{
+  width: 90%;
+  height: 80%;
+}
+

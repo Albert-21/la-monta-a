@@ -1,0 +1,89 @@
+<div class="menu-cards">
+  <div>
+    <img src="assets/img/img-35.jpg" alt="News 2">
+    <h3>Ventas Totales</h3>
+    <p>$ {{totalVendido}} pesos</p>
+  </div>
+  <div>
+    <img src="assets/img/img-36.png" alt="News 3">
+    <h3>Fecha Actual</h3>
+    <p>Hoy es {{date.toLocaleDateString()}}</p>
+  </div>
+  <div>
+    <img src="assets/img/img-37.jpg" alt="News 1">
+    <h3>Inventario</h3>
+    <p>Gestión y consulta de invetario desde aqui</p>
+    <a routerLink="/inventario">Conocer más<i class="fas fa-angle-double-right "></i></a>
+  </div>
+</div>
+<div class="mesas-cards-container">
+  <div>
+    <img src="assets/img/img-38.png" alt="mesa 1">
+    <h3>Mesa 1</h3>
+    <a (click)="Guardar()">Realizar Venta<i class="fas fa-angle-double-right "></i></a>
+    <br>
+    <a href="mesa1-ventas">Consultar ventas<i class="fas fa-angle-double-right "></i></a>
+  </div>
+  <div>
+    <img src="assets/img/img-38.png" alt="mesa 2">
+    <h3>Mesa 2</h3>
+    <a (click)="Guardar()">Realizar Venta<i class="fas fa-angle-double-right "></i></a>
+    <br>
+    <a href="mesa2-ventas">Consultar ventas<i class="fas fa-angle-double-right "></i></a>
+  </div>
+  <div>
+    <img src="assets/img/img-38.png" alt="mesa 3">
+    <h3>Mesa 3</h3>
+    <a (click)="Guardar()">Realizar Venta<i class="fas fa-angle-double-right "></i></a>
+    <br>
+    <a href="mesa3-ventas">Consultar ventas<i class="fas fa-angle-double-right "></i></a>
+  </div>
+  <div>
+    <img src="assets/img/img-38.png" alt="mesa 4">
+    <h3>Mesa 3</h3>
+    <a (click)="Guardar()">Realizar Venta<i class="fas fa-angle-double-right "></i></a>
+    <br>
+    <a href="mesa4-ventas">Consultar ventas<i class="fas fa-angle-double-right "></i></a>
+  </div>
+  <div>
+    <img src="assets/img/img-38.png" alt="mesa 5">
+    <h3>Mesa 3</h3>
+    <a (click)="Guardar()">Realizar Venta<i class="fas fa-angle-double-right "></i></a>
+    <br>
+    <a href="mesa5-ventas">Consultar ventas<i class="fas fa-angle-double-right "></i></a>
+  </div>
+  <div>
+    <img src="assets/img/img-38.png" alt="mesa 6">
+    <h3>Mesa 3</h3>
+    <a (click)="Guardar()">Realizar Venta<i class="fas fa-angle-double-right "></i></a>
+    <br>
+    <a href="mesa6-ventas">Consultar ventas<i class="fas fa-angle-double-right "></i></a>
+  </div>
+</div>
+
+<div class="ventas-mesa">
+  <h1 class="titulo-venta"> Ventas Mesa {{idMesa}}</h1>
+  <table class="tabla-ventas table">
+    <thead class="thead-dark">
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Nombre de la mesa</th>
+      <th scope="col">$ Monto vendido</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <th scope="row">1</th>
+      <td>Mesa 1</td>
+      <td>$ 180.00</td>
+    </tr>
+    <tr>
+      <th scope="row">2</th>
+      <td>Mesa 1</td>
+      <td>$ 80.00</td>
+    </tr>
+    </tbody>
+  </table>
+</div>
+
+

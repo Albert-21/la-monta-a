@@ -1,0 +1,10 @@
+.aviso-privacidad-contenedor{
+  width: 90%;
+  margin: auto;
+  padding-top: 50px;
+}
+
+.aviso-privacidad-contenedor .subtitulos{
+  font-weight: bold;
+  font-size: 1rem;
+}

@@ -4,7 +4,8 @@ import { FormsModule } from '@angular/forms';
 import { LightboxModule } from 'ngx-lightbox';
 
 import { environment } from "../environments/environment";
-import { provideFirebaseApp, getApp, initializeApp } from '@angular/fire/app';
+import { AngularFireModule } from '@angular/fire/compat';
+
 
 
 import { AppRoutingModule } from './app-routing.module';
@@ -49,9 +50,10 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
         FormsModule,
         LightboxModule,
         BrowserAnimationsModule,
-      provideFirebaseApp(() => initializeApp(environment.firebase)),
+        AngularFireModule.initializeApp(environment.firebase),
     ],
-  providers: [],
+  providers: [
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

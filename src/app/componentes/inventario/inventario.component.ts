@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import Swal from 'sweetalert2'
 import * as $ from 'jquery'
 import {Producto} from "../../models/producto.model";
+import {AngularFirestore, AngularFirestoreCollection} from "@angular/fire/compat/firestore";
+import {Observable} from "rxjs";
 
 @Component({
   selector: 'inventario-component',
@@ -14,8 +16,13 @@ export class InventarioComponent implements OnInit {
    ProductoEdit = new Producto();
    productos:Array<any> = []
     idProducto:number = 0
+  private productsCollection: AngularFirestoreCollection<Producto>;
+  products: Observable<Producto[]>;
 
-  constructor() { }
+  constructor(private afs: AngularFirestore) {
+    this.productsCollection = afs.collection<Producto>('productos');
+    this.products = this.productsCollection.valueChanges();
+  }
 
   ngOnInit(): void {
   }
@@ -55,8 +62,9 @@ Swal.fire({
     }).then((result) => {
       if (result.isConfirmed){
         console.log(product)
-        this.productos.push(product);
-        console.log(this.productos)
+        this.productsCollection.add(product)
+        //this.productos.push(product);
+        console.log(this.products)
         Swal.fire('Guardado!', '', 'success')
       } else if (result.isDenied) {
         Swal.fire('no se guardo', '', 'info')

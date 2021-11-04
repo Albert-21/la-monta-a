@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import Swal from 'sweetalert2'
 import * as $ from 'jquery'
+import {Producto} from "../../models/producto.model";
 
 @Component({
   selector: 'inventario-component',
@@ -10,14 +11,7 @@ import * as $ from 'jquery'
 export class InventarioComponent implements OnInit {
   totalVendido=510;
   date= new Date();
-   ProductoEdit ={
-     IdProducto:  0,
-    Nombre: '',
-    Tipo: '',
-    Precio: 0,
-    Piezas: 0
-  }
-
+   ProductoEdit = new Producto();
    productos:Array<any> = []
     idProducto:number = 0
 
@@ -27,7 +21,7 @@ export class InventarioComponent implements OnInit {
   }
 
    Guardar(){
-
+  let product = new Producto();
 Swal.fire({
       title: 'Producto',
       html:
@@ -47,39 +41,21 @@ Swal.fire({
       confirmButtonText: 'Guardar',
       denyButtonText: `Cancelar`,
       preConfirm: () => {
-        const IdProducto = $('#IdProducto').val()
-        const Nombre = $('#Nombre').val()
-        const Tipo = $('#selectTipo').val()
-        const Precio = $('#Precio').val()
-        const Piezas = $('#Piezas').val()
+        product.IdProducto = $('#IdProducto').val()
+        product.Nombre = $('#Nombre').val()
+        product.Tipo = $('#selectTipo').val()
+        product.Precio = $('#Precio').val()
+        product.Piezas = $('#Piezas').val()
 
-        if (!IdProducto || !Nombre || !Tipo || !Precio || !Piezas) {
+        if (!product.IdProducto || !product.Nombre || !product.Tipo || !product.Precio || !product.Piezas) {
           Swal.showValidationMessage(`Ingrese los campos faltantes`)
         }
-        return {
-          IdProducto: IdProducto,
-          Nombre: Nombre ,
-          Tipo: Tipo,
-          Precio: Precio,
-          Piezas: Piezas
-        }
+        return product
       }
     }).then((result) => {
       if (result.isConfirmed){
-        console.log({
-          IdProducto: result.value?.IdProducto,
-          Nombre: result.value?.Nombre ,
-          Tipo: result.value?.Tipo,
-          Precio: result.value?.Precio,
-          Piezas: result.value?.Piezas
-        })
-        this.productos.push( {
-          IdProducto: result.value?.IdProducto,
-          Nombre: result.value?.Nombre ,
-          Tipo: result.value?.Tipo,
-          Precio: result.value?.Precio,
-          Piezas: result.value?.Piezas
-        });
+        console.log(product)
+        this.productos.push(product);
         console.log(this.productos)
         Swal.fire('Guardado!', '', 'success')
       } else if (result.isDenied) {
@@ -96,15 +72,15 @@ Swal.fire({
  Swal.fire({
       title: 'Editar Producto',
       html:
-        '<input id="IdProducto" type="number" value="'+this.productos[this.idProducto].IdProducto+'" placeholder="IdProducto" class="swal2-input">' +
-        '<input id="Nombre" type="text" value="'+this.productos[this.idProducto].Nombre+'" placeholder="Nombre" class="swal2-input">'+
+        '<input id="IdProducto" type="number" value="'+this.productos[this.idProducto].producto.IdProducto+'" placeholder="IdProducto" class="swal2-input">' +
+        '<input id="Nombre" type="text" value="'+this.productos[this.idProducto].producto.Nombre+'" placeholder="Nombre" class="swal2-input">'+
         '<select id="selectTipo" placeholder="selecione" class="swal2-input">' +
-        '  <option selected="selected">'+ this.productos[this.idProducto].Tipo+'</option>\n' +
+        '  <option selected="selected">'+ this.productos[this.idProducto].producto.Tipo+'</option>\n' +
         '  <option>Del Comal</option>\n' +
         '  <option>Comida del dia</option>\n'+
         '</select>' +
-        '<input id="Precio" type="number" value="'+this.productos[this.idProducto].Precio+'" placeholder="Precio" class="swal2-input">'+
-        '<input id="Piezas" type="number" value="'+this.productos[this.idProducto].Piezas+'"placeholder="Piezas" class="swal2-input">',
+        '<input id="Precio" type="number" value="'+this.productos[this.idProducto].producto.Precio+'" placeholder="Precio" class="swal2-input">'+
+        '<input id="Piezas" type="number" value="'+this.productos[this.idProducto].producto.Piezas+'"placeholder="Piezas" class="swal2-input">',
       focusConfirm: false,
       showConfirmButton:true,
       showCancelButton:true,
@@ -118,7 +94,7 @@ Swal.fire({
         const Piezas = $('#Piezas').val()
 
         if (!IdProducto || !Nombre || !Tipo || !Precio || !Piezas) {
-          Swal.showValidationMessage(`Please enter login and password`)
+          Swal.showValidationMessage(`Ingrese los campos faltantes`)
         }
         return {
           IdProducto: IdProducto,

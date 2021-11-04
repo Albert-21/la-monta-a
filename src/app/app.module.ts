@@ -3,6 +3,10 @@ import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
 import { LightboxModule } from 'ngx-lightbox';
 
+import { environment } from "../environments/environment";
+import { provideFirebaseApp, getApp, initializeApp } from '@angular/fire/app';
+
+
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { FooterComponent } from './componentes/footer/footer.component';
@@ -19,6 +23,7 @@ import { ContactanosComponent } from './componentes/contactanos/contactanos.comp
 import { VentasComponent } from './componentes/ventas/ventas.component';
 import { InventarioComponent } from './componentes/inventario/inventario.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
 
 
 @NgModule({
@@ -44,6 +49,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
         FormsModule,
         LightboxModule,
         BrowserAnimationsModule,
+      provideFirebaseApp(() => initializeApp(environment.firebase)),
     ],
   providers: [],
   bootstrap: [AppComponent]

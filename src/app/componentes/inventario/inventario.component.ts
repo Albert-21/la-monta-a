@@ -15,7 +15,7 @@ export class InventarioComponent implements OnInit {
   date= new Date();
    ProductoEdit = new Producto();
    productos:Array<any> = []
-    idProducto:number = 0
+  idProducto:number = 0
   private productsCollection: AngularFirestoreCollection<Producto>;
   products: Observable<Producto[]>;
 

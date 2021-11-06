@@ -10,9 +10,11 @@ import firebase from "firebase/compat/app";
 })
 export class LoginComponent implements OnInit {
   status = false;
-  constructor() { }
+  constructor(public auth: AngularFireAuth) { }
 
   ngOnInit(): void {
   }
-
+  login() {
+    this.auth.signInWithPopup(new firebase.auth.GoogleAuthProvider());
+  }
 }

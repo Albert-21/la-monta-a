@@ -6,8 +6,6 @@ import { LightboxModule } from 'ngx-lightbox';
 import { environment } from "../environments/environment";
 import { AngularFireModule } from '@angular/fire/compat';
 
-
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { FooterComponent } from './componentes/footer/footer.component';

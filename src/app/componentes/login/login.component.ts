@@ -9,12 +9,18 @@ import firebase from "firebase/compat/app";
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-  status = false;
-  constructor(public auth: AngularFireAuth) { }
+
+  constructor(private auth:FirebaseService) { }
 
   ngOnInit(): void {
   }
-  login() {
-    this.auth.signInWithPopup(new firebase.auth.GoogleAuthProvider());
+
+  async iniciarSesion(usuario:string,contrasenia:string){
+    try {
+      await this.auth.iniciarSesion(usuario,contrasenia);
+      console.log("logueo exitoso");
+    }catch(error: any){
+      console.log("ocurrio un error"+error);
+    }
   }
 }

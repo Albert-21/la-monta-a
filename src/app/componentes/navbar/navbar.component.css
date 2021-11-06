@@ -19,15 +19,14 @@
 }
 
 .navbar-nav{
-  width: 70%;
   height: 100px;
-  margin-left: 500px;
+  margin-left: 200px;
   line-height: 50px;
 }
 
 .nav-item{
   cursor: pointer;
-  padding: 0 30px;
+  padding: 0 25px;
 }
 
 .nav-link{

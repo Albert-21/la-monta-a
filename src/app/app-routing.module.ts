@@ -12,7 +12,10 @@ import {VentasComponent} from './componentes/ventas/ventas.component';
 import {InventarioComponent} from './componentes/inventario/inventario.component';
 import {QuienesSomosComponent} from './componentes/quienes-somos/quienes-somos.component';
 
+import { AngularFireAuthGuard, hasCustomClaim, redirectUnauthorizedTo, redirectLoggedInTo } from '@angular/fire/compat/auth-guard';
 
+const redirectUnauthorizedToLogin = () => redirectUnauthorizedTo(['login']);
+const redirectLoggedInToInventory = () => redirectLoggedInTo(['inventario']);
 
 const routes: Routes = [
   {
@@ -46,7 +49,9 @@ const routes: Routes = [
   },
   {
     path: "login",
-    component: LoginComponent
+    component: LoginComponent,
+    canActivate: [AngularFireAuthGuard],
+    data: { authGuardPipe: redirectLoggedInToInventory }
   },
   {
     path: "ubicacion",
@@ -58,8 +63,11 @@ const routes: Routes = [
   },
   {
     path: "inventario",
-    component: InventarioComponent
-  },
+    component: InventarioComponent,
+    canActivate: [AngularFireAuthGuard],
+    data: { authGuardPipe: redirectUnauthorizedToLogin }
+
+},
   {
     path: "quienes-somos",
     component: QuienesSomosComponent

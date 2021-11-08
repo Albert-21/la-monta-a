@@ -34,20 +34,19 @@
       </tr>
       </thead>
       <tbody>
-      <tr *ngFor="let item of products | async;let i = index;">
-        <td *ngIf="false" [(ngModel)]="idProducto">{{i}}</td>
-        <td [(ngModel)]="ProductoEdit.IdProducto">{{item.IdProducto}}</td>
-        <td [(ngModel)]="ProductoEdit.Nombre">{{item.Nombre}}</td>
-        <td [(ngModel)]="ProductoEdit.Tipo">{{item.Tipo}}</td>
-        <td [(ngModel)]="ProductoEdit.Precio">{{item.Precio}}</td>
-        <td [(ngModel)]="ProductoEdit.Piezas">{{item.Piezas}}</td>
+      <tr *ngFor="let item of productos ; let i = index;">
+        <td>{{item.data.IdProducto}}</td>
+        <td>{{item.data.Nombre}}</td>
+        <td>{{item.data.Tipo}}</td>
+        <td>{{item.data.Precio}}</td>
+        <td>{{item.data.Piezas}}</td>
         <td>
-          <a class="btn btn-warning" (click)="editar()" >Editar <i class="fa fa-edit"></i></a>
+          <a class="btn btn-warning"  (click)="editar(i,item.id)">Editar <i class="fa fa-edit"></i></a>
         </td>
         <td>
           <form>
             <input type="hidden" name="id"/>
-            <button type="submit" class="btn btn-danger" (click)="eliminar()">Eliminar <i class="fa fa-trash"></i>
+            <button type="submit" class="btn btn-danger" (click)="eliminar(item.id)" >Eliminar <i class="fa fa-trash"></i>
             </button>
           </form>
         </td>

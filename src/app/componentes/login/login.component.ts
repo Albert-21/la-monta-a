@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import {AngularFireAuth} from "@angular/fire/compat/auth";
-import firebase from "firebase/compat/app";
+import {FirebaseService} from "../../services/firebase.service";
+import {Router} from "@angular/router";
 
 
 @Component({
@@ -10,7 +10,7 @@ import firebase from "firebase/compat/app";
 })
 export class LoginComponent implements OnInit {
 
-  constructor(private auth:FirebaseService) { }
+  constructor(private auth:FirebaseService, private router: Router) { }
 
   ngOnInit(): void {
   }
@@ -19,6 +19,8 @@ export class LoginComponent implements OnInit {
     try {
       await this.auth.iniciarSesion(usuario,contrasenia);
       console.log("logueo exitoso");
+      this.auth.isLogged()
+    this.router.navigate(['inventario'])
     }catch(error: any){
       console.log("ocurrio un error"+error);
     }

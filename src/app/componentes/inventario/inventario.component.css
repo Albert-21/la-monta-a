@@ -30,3 +30,12 @@
   opacity: .7;
   text-decoration: underline;
 }
+
+.inventario-op{
+  width: 95%;
+  margin: auto;
+}
+
+.btn-guardar{
+  margin: 10px;
+}

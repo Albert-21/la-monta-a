@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {FirebaseService} from "../../services/firebase.service";
 import {Router} from "@angular/router";
 
@@ -10,19 +10,20 @@ import {Router} from "@angular/router";
 })
 export class LoginComponent implements OnInit {
 
-  constructor(private auth:FirebaseService, private router: Router) { }
+  constructor(private auth: FirebaseService, private router: Router) {
+  }
 
   ngOnInit(): void {
   }
 
-  async iniciarSesion(usuario:string,contrasenia:string){
+  async iniciarSesion(usuario: string, contrasenia: string) {
     try {
-      await this.auth.iniciarSesion(usuario,contrasenia);
+      await this.auth.iniciarSesion(usuario, contrasenia);
       console.log("logueo exitoso");
       this.auth.isLogged()
-    this.router.navigate(['inventario'])
-    }catch(error: any){
-      console.log("ocurrio un error"+error);
+      this.router.navigate(['inventario'])
+    } catch (error: any) {
+      console.log("ocurrio un error" + error);
     }
   }
 }

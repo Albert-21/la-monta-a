@@ -76,3 +76,117 @@
   transition: all 0.218s;
 }
 
+@media screen and (max-width: 800px) {
+  .card-container.card {
+    max-width: 460px;
+    height: 460px;
+    padding: 30px 30px;
+  }
+
+  .btn {
+    height: 30px;
+  }
+
+  .checkbox{
+    padding: 10px;
+  }
+
+  /*
+   * Card component
+   */
+  .card {
+    background-color: #F7F7F7;
+    /* just in case there no content*/
+    padding: 15px 20px 25px;
+    margin: 0 auto 20px;
+    margin-top: 40px;
+    /* shadows and rounded borders */
+    border-radius: 6px;
+    box-shadow: 3px 3px 3px 3px rgba(0, 0, 0, 0.25);
+  }
+
+  .profile-img-card {
+    width: 155px;
+    height: 155px;
+    margin: 0 auto 10px;
+  }
+
+  /*
+   * Form styles
+   */
+  .profile-name-card {
+    font-size: 1rem;
+    margin: 15px 0 0;
+    min-height: 1em;
+  }
+
+  .form-signin #inputEmail,
+  .form-signin #inputPassword {
+    direction: ltr;
+    height: 40px;
+    font-size: 1rem;
+  }
+
+  .btn.btn-signin {
+    font-size: 1rem;
+    height: 35px;
+    border-radius: 4px;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .card-container.card {
+    max-width: 380px;
+    height: 380px;
+    padding: 25px 25px;
+  }
+
+  .btn {
+    height: 25px;
+  }
+
+  .checkbox{
+    padding: 5px;
+  }
+
+  /*
+   * Card component
+   */
+  .card {
+    background-color: #F7F7F7;
+    /* just in case there no content*/
+    padding: 10px 15px 20px;
+    margin: 0 auto 15px;
+    margin-top: 25px;
+    /* shadows and rounded borders */
+    box-shadow: 3px 3px 3px 3px rgba(0, 0, 0, 0.25);
+  }
+
+  .profile-img-card {
+    width: 120px;
+    height: 120px;
+    margin: 0 auto 5px;
+  }
+
+  /*
+   * Form styles
+   */
+  .profile-name-card {
+    font-size: .8rem;
+    margin: 5px 0 0;
+    min-height: .8em;
+  }
+
+  .form-signin #inputEmail,
+  .form-signin #inputPassword {
+    direction: ltr;
+    height: 25px;
+    font-size: .7rem;
+  }
+
+  .btn.btn-signin {
+    font-size: .9rem;
+    height: 30px;
+    border-radius: 4px;
+  }
+}

@@ -16,74 +16,107 @@
     <a routerLink="/inventario">Conocer más<i class="fas fa-angle-double-right "></i></a>
   </div>
 </div>
-<div class="mesas-cards-container">
-  <div>
-    <img src="assets/img/img-38.png" alt="mesa 1">
-    <h3>Mesa 1</h3>
-    <a (click)="Guardar()">Realizar Venta<i class="fas fa-angle-double-right "></i></a>
-    <br>
-    <a href="mesa1-ventas">Consultar ventas<i class="fas fa-angle-double-right "></i></a>
-  </div>
-  <div>
-    <img src="assets/img/img-38.png" alt="mesa 2">
-    <h3>Mesa 2</h3>
-    <a (click)="Guardar()">Realizar Venta<i class="fas fa-angle-double-right "></i></a>
-    <br>
-    <a href="mesa2-ventas">Consultar ventas<i class="fas fa-angle-double-right "></i></a>
-  </div>
-  <div>
-    <img src="assets/img/img-38.png" alt="mesa 3">
-    <h3>Mesa 3</h3>
-    <a (click)="Guardar()">Realizar Venta<i class="fas fa-angle-double-right "></i></a>
-    <br>
-    <a href="mesa3-ventas">Consultar ventas<i class="fas fa-angle-double-right "></i></a>
-  </div>
-  <div>
-    <img src="assets/img/img-38.png" alt="mesa 4">
-    <h3>Mesa 4</h3>
-    <a (click)="Guardar()">Realizar Venta<i class="fas fa-angle-double-right "></i></a>
-    <br>
-    <a href="mesa4-ventas">Consultar ventas<i class="fas fa-angle-double-right "></i></a>
-  </div>
-  <div>
-    <img src="assets/img/img-38.png" alt="mesa 5">
-    <h3>Mesa 5</h3>
-    <a (click)="Guardar()">Realizar Venta<i class="fas fa-angle-double-right "></i></a>
-    <br>
-    <a href="mesa5-ventas">Consultar ventas<i class="fas fa-angle-double-right "></i></a>
-  </div>
-  <div>
-    <img src="assets/img/img-38.png" alt="mesa 6">
-    <h3>Mesa 6</h3>
-    <a (click)="Guardar()">Realizar Venta<i class="fas fa-angle-double-right "></i></a>
-    <br>
-    <a href="mesa6-ventas">Consultar ventas<i class="fas fa-angle-double-right "></i></a>
+
+<div class="formulario-ventas">
+  <div class="row d-flex justify-content-center">
+    <div class="text-center">
+      <h3>Realizar venta</h3>
+      <p class="blue-text">Por favor completa todos los campos siguientes</p>
+      <div class="card">
+        <form class="form-card">
+          <div class="row justify-content-between text-left">
+            <div class="form-group col-sm-6 flex-column d-flex"><label class="form-control-label px-3">ID Mesa<span
+              class="text-danger"> *</span></label> <input type="text" placeholder="Ingresa el ID de la mesa donde se guardará la venta">
+            </div>
+            <div class="row">
+              <div class="form-group col-sm-12">
+                <button type="submit" class="btn-block btn-primary">Buscar producto</button>
+              </div>
+            </div>
+            <div class="form-group col-sm-6 flex-column d-flex"><label class="form-control-label px-3">ID del
+              producto<span class="text-danger"> *</span></label> <input type="text" placeholder="Ingresa el ID del producto">
+            </div>
+            <div class="form-group col-sm-6 flex-column d-flex"><label class="form-control-label px-3">Nombre del
+              producto<span class="text-danger"> *</span></label><input type="text" placeholder="Ingresa el nombre del producto">
+            </div>
+          </div>
+          <div class="form-group col-sm-6 flex-column d-flex"><label class="form-control-label px-3">Tipo de
+            producto<span class="text-danger"> *</span></label> <input type="text" placeholder="selecciona un tipo">
+          </div>
+          <div class="row justify-content-between text-left">
+            <div class="form-group col-sm-6 flex-column d-flex"><label class="form-control-label px-3">Cantidad
+              <span class="text-danger"> *</span></label> <input type="text" placeholder="Ingresa la cantidad de piezas a vender">
+            </div>
+            <div class="form-group col-sm-6 flex-column d-flex"><label class="form-control-label px-3">Precio<span
+              class="text-danger"> *</span></label> <input type="text" placeholder="Ingresa el precio del producto"></div>
+          </div>
+          <div class="row justify-content-center">
+            <div class="form-group col-sm-10">
+              <button type="submit" class="btn-block btn-primary">Añadir producto</button>
+            </div>
+          </div>
+          <div class="row justify-content-end">
+            <div class="form-group col-sm-4">
+              <button type="submit" class="btn-block btn-primary">Realizar venta</button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
   </div>
 </div>
 
-<div class="ventas-mesa">
-  <h1 class="titulo-venta"> Ventas Mesa {{idMesa}}</h1>
-  <table class="tabla-ventas table">
-    <thead class="thead-dark">
-    <tr>
-      <th scope="col">#</th>
-      <th scope="col">Nombre de la mesa</th>
-      <th scope="col">$ Monto vendido</th>
-    </tr>
-    </thead>
-    <tbody>
-    <tr>
-      <th scope="row">1</th>
-      <td>Mesa 1</td>
-      <td>$ 180.00</td>
-    </tr>
-    <tr>
-      <th scope="row">2</th>
-      <td>Mesa 1</td>
-      <td>$ 80.00</td>
-    </tr>
-    </tbody>
-  </table>
+<div class="d-flex justify-content-center text-center">
+  <div class="col-lg-10">
+    <div class="card">
+      <div class="card-body">
+        <h4 class="card-title">Historial de Ventas </h4>
+        <div class="form-group col-sm-6 flex-column d-flex"><label class="form-control-label px-3">ID Mesa<span
+          class="text-danger"> *</span></label> <input type="text" placeholder="Ingresa el ID de la mesa para consultar las ventas realizadas" onblur="validate(1)">
+        </div>
+        <div class="contenedor-botones-group">
+          <div class="form-group contenedor-boton">
+            <button type="submit" class="btn-block btn-primary">Filtrar Ventas</button>
+          </div>
+          <div class="form-group contenedor-boton">
+            <button type="submit" class="btn-block btn-primary">Calcular total vendido</button>
+          </div>
+        </div>
+        <div class="table-responsive">
+          <table class="table table-striped">
+            <thead>
+            <tr>
+              <th> Mesa</th>
+              <th> Numero de Mesa</th>
+              <th> Numero de productos vendidos</th>
+              <th> Descripción de Articulos</th>
+              <th> Total de la venta</th>
+              <th> Fecha</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+              <td class="py-1"><img src="https://img.icons8.com/office/30/000000/table.png"/></td>
+              <td> 1</td>
+              <td> 3</td>
+              <td> 2 picaditas <br>1 bebida mirinda 600 ml</td>
+              <td> $ 57.99</td>
+              <td> May 15, 2015</td>
+            </tr>
+            <tr>
+              <td class="py-1"><img src="https://img.icons8.com/office/30/000000/table.png"/></td>
+              <td> 1</td>
+              <td> 5</td>
+              <td> 2 picaditas <br> 2 tacos de flor<br>1 bebida pepsi 600 ml</td>
+              <td> $ 177.99</td>
+              <td> May 18, 2015</td>
+            </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
 
 

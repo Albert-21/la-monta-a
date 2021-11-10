@@ -38,3 +38,13 @@
   opacity: .4;
   border-bottom: 3px solid #000000;
 }
+
+
+@media all and (max-width: 575px){
+  .contenedor-logo{
+    width: 100%;
+  }
+  .navbar-nav{
+    width: 100%;
+  }
+}

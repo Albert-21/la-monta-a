@@ -1,20 +1,26 @@
+<div class="ventas-base">
 <div class="menu-cards">
-  <div>
+
+  <div class="container">
+  <div class="swal2-grow-column">
     <img src="assets/img/img-35.jpg" alt="News 2">
     <h3>Ventas Totales</h3>
     <p>$ {{totalVendido}} pesos</p>
   </div>
-  <div>
+
+  <div class="swal2-grow-column">
     <img src="assets/img/img-36.png" alt="News 3">
     <h3>Fecha Actual</h3>
     <p>Hoy es {{date.toLocaleDateString()}}</p>
   </div>
-  <div>
+
+  <div class="swal2-grow-column">
     <img src="assets/img/img-37.jpg" alt="News 1">
     <h3>Inventario</h3>
     <p>Gestión y consulta de invetario desde aqui</p>
     <a routerLink="/inventario">Conocer más<i class="fas fa-angle-double-right "></i></a>
   </div>
+</div>
 </div>
 
 <div class="formulario-ventas">
@@ -22,27 +28,31 @@
     <div class="text-center">
       <h3>Realizar venta</h3>
       <p class="blue-text">Por favor completa todos los campos siguientes</p>
+
       <div class="card">
         <form class="form-card">
+
           <div class="row justify-content-between text-left">
             <div class="form-group col-sm-6 flex-column d-flex"><label class="form-control-label px-3">ID Mesa<span
               class="text-danger"> *</span></label> <input type="text" placeholder="Ingresa el ID de la mesa donde se guardará la venta">
             </div>
-            <div class="row">
+            <div class="form-group col-sm-6 flex-column d-flex">
               <div class="form-group col-sm-12">
                 <button type="submit" class="btn-block btn-primary">Buscar producto</button>
               </div>
             </div>
+
             <div class="form-group col-sm-6 flex-column d-flex"><label class="form-control-label px-3">ID del
               producto<span class="text-danger"> *</span></label> <input type="text" placeholder="Ingresa el ID del producto">
             </div>
             <div class="form-group col-sm-6 flex-column d-flex"><label class="form-control-label px-3">Nombre del
               producto<span class="text-danger"> *</span></label><input type="text" placeholder="Ingresa el nombre del producto">
             </div>
-          </div>
+
           <div class="form-group col-sm-6 flex-column d-flex"><label class="form-control-label px-3">Tipo de
             producto<span class="text-danger"> *</span></label> <input type="text" placeholder="selecciona un tipo">
           </div>
+
           <div class="row justify-content-between text-left">
             <div class="form-group col-sm-6 flex-column d-flex"><label class="form-control-label px-3">Cantidad
               <span class="text-danger"> *</span></label> <input type="text" placeholder="Ingresa la cantidad de piezas a vender">
@@ -50,16 +60,22 @@
             <div class="form-group col-sm-6 flex-column d-flex"><label class="form-control-label px-3">Precio<span
               class="text-danger"> *</span></label> <input type="text" placeholder="Ingresa el precio del producto"></div>
           </div>
-          <div class="row justify-content-center">
-            <div class="form-group col-sm-10">
-              <button type="submit" class="btn-block btn-primary">Añadir producto</button>
+
+          <div class="btn-anadir">
+            <div class="row justify-content-center">
+              <div class="form-group col-sm-10">
+                <button type="submit" class="btn-block btn-primary">Añadir producto</button>
+              </div>
+            </div>
+            <div class="row justify-content-end">
+              <div class="form-group col-sm-4">
+                <button type="submit" class="btn-block btn-primary">Realizar venta</button>
+              </div>
             </div>
           </div>
-          <div class="row justify-content-end">
-            <div class="form-group col-sm-4">
-              <button type="submit" class="btn-block btn-primary">Realizar venta</button>
-            </div>
+
           </div>
+
         </form>
       </div>
     </div>
@@ -118,5 +134,4 @@
     </div>
   </div>
 </div>
-
-
+</div>

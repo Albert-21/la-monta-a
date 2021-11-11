@@ -52,7 +52,7 @@
 }
 
 .body-home .body-img {
-  width: 26%;
+  width: 20%;
 }
 
 .body-text {
@@ -89,5 +89,17 @@
   }
   .contenedor-home{
     margin-top: 50%;
+  }
+  .body-home .body-title{
+    text-align: center;
+  }
+  .body-home .body-text2 p{
+    text-align: center;
+  }
+  .body-home p{
+    text-align: center;
+  }
+  .body-home .body-img {
+    width: 40%;
   }
 }

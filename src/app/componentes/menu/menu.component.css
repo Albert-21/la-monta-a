@@ -15,3 +15,12 @@
   height: 80%;
 }
 
+@media all and (max-width: 575px){
+  .menu-base{
+
+  }
+  .menu-titulo{
+
+  }
+}
+

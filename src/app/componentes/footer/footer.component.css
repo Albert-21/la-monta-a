@@ -33,4 +33,18 @@
   border-bottom: 3px solid #ffffff;
 }
 
-
+@media all and (max-width: 575px){
+  .titulo-footer{
+    text-align: center;
+  }
+  .nav-link{
+    text-align: center;
+    color: #fff;
+    font-weight: 400;
+  }
+  .footer-contenedor {
+    background-color: #07AB4C;
+    width: 100%;
+    height: auto;
+  }
+}

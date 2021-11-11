@@ -26,4 +26,7 @@
   .quienes-somos-contenedor .logo{
     width: 40%;
   }
+  .quienes-somos-info{
+    text-align: justify;
+  }
 }

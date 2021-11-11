@@ -1,22 +1,26 @@
-<div class="menu-cards">
-  <div>
+<div class="inventario-base">
+  <div class="menu-cards">
+    <div class="container">
+  <div class="swal2-grow-column">
     <img src="assets/img/img-35.jpg" alt="News 2">
     <h3>Ventas Totales</h3>
     <p>$ {{totalVendido}} pesos</p>
   </div>
-  <div>
+
+  <div class="swal2-grow-column">
     <img src="assets/img/img-36.png" alt="News 3">
     <h3>Fecha Actual</h3>
     <p>Hoy es {{date.toLocaleDateString()}}</p>
   </div>
-  <div>
+
+  <div class="swal2-grow-column">
     <img src="assets/img/img-34.jpg" alt="News 4">
     <h3>Ventas</h3>
     <p>Gestión y consulta de ventas desde aqui</p>
     <a routerLink="/ventas">Conocer más<i class="fas fa-angle-double-right "></i></a>
   </div>
 </div>
-
+  </div>
 <div class="col-12 inventario-op">
   <h2>Productos</h2>
   <a class="btn btn-success mb-2 btn-guardar" (click)="Guardar()">Agregar</a>
@@ -56,3 +60,4 @@
   </div>
 </div>
 <footer-component></footer-component>
+</div>

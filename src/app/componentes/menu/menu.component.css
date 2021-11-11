@@ -11,16 +11,20 @@
 }
 
 .menu-contenedor .logo{
-  width: 90%;
+  width: 100%;
   height: 80%;
 }
 
 @media all and (max-width: 575px){
   .menu-base{
-
+  margin-top: 50%;
   }
   .menu-titulo{
-
+  text-align: center;
+  }
+  .menu-contenedor .logo{
+    width: 100%;
+    height: auto;
   }
 }
 

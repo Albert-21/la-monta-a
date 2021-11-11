@@ -40,5 +40,11 @@
   background:#000
 }
 
+@media all and (max-width: 575px) {
+  .galeria-base{
+    margin-top: 50%;
+  }
+}
+
 
 

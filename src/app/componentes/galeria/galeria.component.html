@@ -1,6 +1,8 @@
+<div class="galeria-base">
 <h1 class="galeria-titulo">GALERIA</h1>
 <div class="galeria-contenedor">
   <img class="galeria-item" *ngFor="let image of _album; let i=index" [src]="image.thumb" (click)="open(i)"/>
 </div>
 
 <footer-component></footer-component>
+</div>

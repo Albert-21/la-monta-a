@@ -29,3 +29,15 @@
   text-decoration: none;
   color: #000000;
 }
+
+@media all and (max-width: 575px){
+  .ubicacion-base{
+    margin-top: 50%;
+  }
+  .ubicacion-titulos{
+    text-align: center;
+  }
+  .ubicacion-container img{
+    margin-left: 5%;
+  }
+}

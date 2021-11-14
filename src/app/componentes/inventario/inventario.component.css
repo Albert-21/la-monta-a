@@ -39,3 +39,13 @@
 .btn-guardar{
   margin: 10px;
 }
+
+@media all and (max-width: 575px){
+  .inventario-base{
+    margin-top: 45%;
+  }
+  .swal2-grow-column{
+    width: 300%;
+    margin-left: 50%;
+  }
+}

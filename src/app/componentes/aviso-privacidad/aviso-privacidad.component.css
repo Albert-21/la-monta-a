@@ -8,3 +8,12 @@
   font-weight: bold;
   font-size: 1rem;
 }
+
+@media all and (max-width: 575px){
+  .avisos-base{
+    margin-top: 45%;
+  }
+  .aviso-privacidad-contenedor{
+    text-align: justify;
+  }
+}

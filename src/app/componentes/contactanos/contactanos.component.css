@@ -87,3 +87,15 @@
   cursor: pointer;
   box-shadow: .5px .5px .5px .5px rgba(0, 0, 0, 0.5);
 }
+
+@media all and (max-width: 575px) {
+  .contactanos-base{
+    margin-top: 45%;
+  }
+  .body-home .body-img{
+    width: 40%;
+  }
+  .body-home .body-text{
+    text-align: justify;
+  }
+}

@@ -18,3 +18,15 @@
   font-size: 1.5rem;
   padding: 15px 0;
 }
+
+@media all and (max-width: 575px){
+  .quienes-base{
+    margin-top: 45%;
+  }
+  .quienes-somos-contenedor .logo{
+    width: 40%;
+  }
+  .quienes-somos-info{
+    text-align: justify;
+  }
+}

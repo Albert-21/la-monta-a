@@ -89,3 +89,11 @@
   padding: 20px 0;
 }
 
+@media all and (max-width: 575px) {
+  .cuentanos-base{
+    margin-top: 45%;
+  }
+  .body-home .body-img{
+    width: 40%;
+  }
+}

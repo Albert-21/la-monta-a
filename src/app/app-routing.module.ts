@@ -59,7 +59,9 @@ const routes: Routes = [
   },
   {
     path: "ventas",
-    component: VentasComponent
+    component: VentasComponent,
+    canActivate: [AngularFireAuthGuard],
+    data: { authGuardPipe: redirectUnauthorizedToLogin }
   },
   {
     path: "inventario",

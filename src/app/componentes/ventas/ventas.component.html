@@ -119,7 +119,7 @@
       <div class="card-body">
         <h4 class="card-title">Historial de Ventas </h4>
         <div class="form-group col-sm-6 flex-column d-flex"><label class="form-control-label px-3">ID Mesa<span
-          class="text-danger"> *</span></label><select class="form-control d-flex" type="number" name="idMesa" [(ngModel)]="idMesa" (click)="historialMesa()" placeholder="Ingresa el ID de la mesa donde se guardará la venta" >
+          class="text-danger"> *</span></label><select class="form-control d-flex" type="number" name="idMesa" [(ngModel)]="idMesa" (click)="mostrarVentas()" placeholder="Ingresa el ID de la mesa donde se guardará la venta" >
           <option selected="selected">Ingresa el ID de la mesa para consultar las productos de la mesa</option>
           <option>1</option>
           <option>2</option>
@@ -150,22 +150,19 @@
             </tr>
             </thead>
             <tbody>
-            <tr>
+            <tr *ngFor="let item of ventas ; let i = index;">
               <td class="py-1"><img src="https://img.icons8.com/office/30/000000/table.png"/></td>
-              <td> 1</td>
-              <td> 3</td>
-              <td> 2 picaditas <br>1 bebida mirinda 600 ml</td>
-              <td> $ 57.99</td>
-              <td> May 15, 2015</td>
+              <td> {{item.data.idMesa}}</td>
+              <td> {{item.data.listaPrductos.length}}</td>
+              <td>
+                <select class="form-control d-flex" type="number">
+                  <option *ngFor="let products of item.data.listaPrductos ; let i = index;">{{products.data.producto.data.Piezas}} {{products.data.producto.data.Nombre}}</option>
+                </select>
+              </td>
+              <td>{{item.data.totalVenta}}</td>
+              <td> {{item.data.fecha}}</td>
             </tr>
-            <tr>
-              <td class="py-1"><img src="https://img.icons8.com/office/30/000000/table.png"/></td>
-              <td> 1</td>
-              <td> 5</td>
-              <td> 2 picaditas <br> 2 tacos de flor<br>1 bebida pepsi 600 ml</td>
-              <td> $ 177.99</td>
-              <td> May 18, 2015</td>
-            </tr>
+
             </tbody>
           </table>
         </div>

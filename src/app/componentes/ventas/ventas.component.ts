@@ -16,7 +16,7 @@ export class VentasComponent implements OnInit {
   totalVendido=510;
   piezas=0
   precio = 0
-  subTotalMesa = 0;
+  ventas:Array<any>;
   date= new Date();
   productos:Array<any>
   productosVenta:Array<any>
@@ -48,6 +48,7 @@ export class VentasComponent implements OnInit {
   constructor(private data_base: FirebaseService) {
     this.productos = []
     this.productosVenta = []
+    this.ventas = []
     setGlobalDateMasks({
       fortatoFecha: 'DD/MM/YY',
       formatoHora: 'hh:mm:ss.SSS A',
@@ -117,43 +118,169 @@ realizarVenta(){
               });
             });
           });
-          this.venta = {
-            fecha: format(new Date(),'DD/MM/YY'),
-            hora: format(new Date(),'hh:mm:ss A'),
-            idMesa:result.value,
-            listaPrductos:this.productosVenta,
-            totalVenta:totalVenta,
-          }
-          console.log(this.productosVenta)
+
           this.venta.listaPrductos = this.productosVenta
-          this.data_base.realizarVenta(this.venta).then(value => {
-            Swal.fire('Se guardo correctamente la venta de la mesa 1','',"success")
-          })
+          if(this.venta.listaPrductos.length > 0){
+            this.venta = {
+              fecha: format(new Date(),'DD/MM/YY'),
+              hora: format(new Date(),'hh:mm:ss A'),
+              idMesa:result.value,
+              listaPrductos:this.productosVenta,
+              totalVenta:totalVenta,
+            }
+            console.log(this.productosVenta)
+            this.data_base.realizarVenta(this.venta).then(value => {
+              Swal.fire('Se guardo correctamente la venta de la mesa 1','',"success")
+              this.data_base.borrarMesa(<string>result.value)
+            })
+
+          }
+
           break;
         case '2':
-          this.data_base.realizarVenta(this.venta).then(value => {
-            Swal.fire('Se guardo correctamente la venta de la mesa 2','',"success")
-          })
+          var totalVenta = 0
+          this.data_base.mostrarProductosMesa2().subscribe((productsSnapshot) => {
+            this.productosVenta = []
+            productsSnapshot.forEach((productsData: any) => {
+              this.productosVenta.push({
+                id: productsData.payload.doc.id,
+                data: productsData.payload.doc.data()
+              });
+            });
+          });
+
+          this.venta.listaPrductos = this.productosVenta
+          if(this.venta.listaPrductos.length > 0){
+            this.venta = {
+              fecha: format(new Date(),'DD/MM/YY'),
+              hora: format(new Date(),'hh:mm:ss A'),
+              idMesa:result.value,
+              listaPrductos:this.productosVenta,
+              totalVenta:totalVenta,
+            }
+            console.log(this.productosVenta)
+            this.data_base.realizarVenta(this.venta).then(value => {
+              Swal.fire('Se guardo correctamente la venta de la mesa 2','',"success")
+              this.data_base.borrarMesa(<string>result.value)
+            })
+
+          }
           break;
         case '3':
-          this.data_base.realizarVenta(this.venta).then(value => {
-            Swal.fire('Se guardo correctamente la venta de la mesa 3','',"success")
-          })
+          var totalVenta = 0
+          this.data_base.mostrarProductosMesa3().subscribe((productsSnapshot) => {
+            this.productosVenta = []
+            productsSnapshot.forEach((productsData: any) => {
+              this.productosVenta.push({
+                id: productsData.payload.doc.id,
+                data: productsData.payload.doc.data()
+              });
+            });
+          });
+
+          this.venta.listaPrductos = this.productosVenta
+          if(this.venta.listaPrductos.length > 0){
+            this.venta = {
+              fecha: format(new Date(),'DD/MM/YY'),
+              hora: format(new Date(),'hh:mm:ss A'),
+              idMesa:result.value,
+              listaPrductos:this.productosVenta,
+              totalVenta:totalVenta,
+            }
+            console.log(this.productosVenta)
+            this.data_base.realizarVenta(this.venta).then(value => {
+              Swal.fire('Se guardo correctamente la venta de la mesa 3','',"success")
+              this.data_base.borrarMesa(<string>result.value)
+            })
+
+          }
           break;
         case '4':
-          this.data_base.realizarVenta(this.venta).then(value => {
-            Swal.fire('Se guardo correctamente la venta de la mesa 4','',"success")
-          })
+          var totalVenta = 0
+          this.data_base.mostrarProductosMesa4().subscribe((productsSnapshot) => {
+            this.productosVenta = []
+            productsSnapshot.forEach((productsData: any) => {
+              this.productosVenta.push({
+                id: productsData.payload.doc.id,
+                data: productsData.payload.doc.data()
+              });
+            });
+          });
+
+          this.venta.listaPrductos = this.productosVenta
+          if(this.venta.listaPrductos.length > 0){
+            this.venta = {
+              fecha: format(new Date(),'DD/MM/YY'),
+              hora: format(new Date(),'hh:mm:ss A'),
+              idMesa:result.value,
+              listaPrductos:this.productosVenta,
+              totalVenta:totalVenta,
+            }
+            console.log(this.productosVenta)
+            this.data_base.realizarVenta(this.venta).then(value => {
+              Swal.fire('Se guardo correctamente la venta de la mesa 4','',"success")
+              this.data_base.borrarMesa(<string>result.value)
+            })
+
+          }
           break;
         case '5':
-          this.data_base.realizarVenta(this.venta).then(value => {
-            Swal.fire('Se guardo correctamente la venta de la mesa 5','',"success")
-          })
+          var totalVenta = 0
+          this.data_base.mostrarProductosMesa5().subscribe((productsSnapshot) => {
+            this.productosVenta = []
+            productsSnapshot.forEach((productsData: any) => {
+              this.productosVenta.push({
+                id: productsData.payload.doc.id,
+                data: productsData.payload.doc.data()
+              });
+            });
+          });
+
+          this.venta.listaPrductos = this.productosVenta
+          if(this.venta.listaPrductos.length > 0){
+            this.venta = {
+              fecha: format(new Date(),'DD/MM/YY'),
+              hora: format(new Date(),'hh:mm:ss A'),
+              idMesa:result.value,
+              listaPrductos:this.productosVenta,
+              totalVenta:totalVenta,
+            }
+            console.log(this.productosVenta)
+            this.data_base.realizarVenta(this.venta).then(value => {
+              Swal.fire('Se guardo correctamente la venta de la mesa 5','',"success")
+              this.data_base.borrarMesa(<string>result.value)
+            })
+
+          }
           break;
         case '6':
-          this.data_base.realizarVenta(this.venta).then(value => {
-            Swal.fire('Se guardo correctamente la venta de la mesa 6','',"success")
-          })
+          var totalVenta = 0
+          this.data_base.mostrarProductosMesa6().subscribe((productsSnapshot) => {
+            this.productosVenta = []
+            productsSnapshot.forEach((productsData: any) => {
+              this.productosVenta.push({
+                id: productsData.payload.doc.id,
+                data: productsData.payload.doc.data()
+              });
+            });
+          });
+
+          this.venta.listaPrductos = this.productosVenta
+          if(this.venta.listaPrductos.length > 0){
+            this.venta = {
+              fecha: format(new Date(),'DD/MM/YY'),
+              hora: format(new Date(),'hh:mm:ss A'),
+              idMesa:result.value,
+              listaPrductos:this.productosVenta,
+              totalVenta:totalVenta,
+            }
+            console.log(this.productosVenta)
+            this.data_base.realizarVenta(this.venta).then(value => {
+              Swal.fire('Se guardo correctamente la venta de la mesa 6','',"success")
+              this.data_base.borrarMesa(<string>result.value)
+            })
+
+          }
           break;
       }
     }
@@ -174,7 +301,6 @@ historialMesa(){
           });
         });
       });
-      console.log(this.productosVenta)
       break;
     case '2':
       this.data_base.mostrarProductosMesa2().subscribe((productsSnapshot) => {
@@ -234,6 +360,18 @@ historialMesa(){
   }
 
 
+}
+mostrarVentas(){
+    this.data_base.mostrarVentas().subscribe( (ventasSnapshot) => {
+      this.ventas = []
+      ventasSnapshot.forEach((ventasData:any) => {
+        this.ventas.push({
+          id: ventasData.payload.doc.id,
+          data: ventasData.payload.doc.data(),
+        });
+      });
+    });
+    console.log(this.ventas)
 }
 
   private mostrarProductos() {

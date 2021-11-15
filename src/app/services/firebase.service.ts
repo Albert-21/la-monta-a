@@ -97,24 +97,52 @@ export class FirebaseService {
   borrarMesa(idMesa:string){
     switch (idMesa) {
       case '1':
-        this.productosMesa1.doc().delete()
+        this.productosMesa1.get().subscribe(function(querySnapshot) {
+          querySnapshot.forEach(function(doc) {
+            doc.ref.delete();
+          });
+        });
         break;
       case '2':
-        this.productosMesa2.doc().delete()
+        this.productosMesa2.get().subscribe(function(querySnapshot) {
+          querySnapshot.forEach(function(doc) {
+            doc.ref.delete();
+          });
+        });
         break;
       case '3':
-        this.productosMesa3.doc().delete()
+        this.productosMesa3.get().subscribe(function(querySnapshot) {
+          querySnapshot.forEach(function(doc) {
+            doc.ref.delete();
+          });
+        });
         break;
       case '4':
-        this.productosMesa4.doc().delete()
+        this.productosMesa4.get().subscribe(function(querySnapshot) {
+          querySnapshot.forEach(function(doc) {
+            doc.ref.delete();
+          });
+        });
         break;
       case '5':
-        this.productosMesa5.doc().delete()
+        this.productosMesa5.get().subscribe(function(querySnapshot) {
+          querySnapshot.forEach(function(doc) {
+            doc.ref.delete();
+          });
+        });
         break;
       case '6':
-        this.productosMesa6.doc().delete()
+        this.productosMesa6.get().subscribe(function(querySnapshot) {
+          querySnapshot.forEach(function(doc) {
+            doc.ref.delete();
+          });
+        });
         break;
     }
+  }
+
+  mostrarVentas(){
+    return this.vetas.snapshotChanges()
   }
 
   guardarProducto(producto: Producto) {
@@ -124,6 +152,7 @@ export class FirebaseService {
   mostrarPrductos() {
     return this.productsCollection.snapshotChanges()
   }
+
 
   actualizarProducto(documentId: string, producto: any) {
     return this.productsCollection.doc(documentId).set(producto);

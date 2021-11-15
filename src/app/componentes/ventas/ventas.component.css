@@ -51,18 +51,11 @@
 
 /*Form ventas*/
 .card {
-  margin-left: 10%;
-  margin-right: 10%;
   padding: 30px 40px;
   margin-top: 60px;
   margin-bottom: 60px;
   border: none !important;
   box-shadow: 0 6px 12px 0 rgba(0, 0, 0, 0.2)
-}
-
-.btn-anadir{
-  margin-top: 5%;
-  width: 20%;
 }
 
 .blue-text {
@@ -122,17 +115,4 @@ button:focus {
 .contenedor-boton{
   width: 500px;
   margin: 0 100px 30px;
-}
-
-@media all and (max-width: 575px){
-  .ventas-base{
-    margin-top: 50%;
-  }
-  .swal2-grow-column{
-    width: 300%;
-    margin-left: 50%;
-  }
-  .formulario-ventas .text-center{
-    text-align: justify;
-  }
 }

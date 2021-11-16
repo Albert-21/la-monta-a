@@ -134,7 +134,7 @@
   }
 }
 
-@media all and (max-width: 575px) {
+@media all and (max-width: 555px) {
   .login-base{
     margin-top: 50%;
   }

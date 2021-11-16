@@ -20,8 +20,8 @@ export class LoginComponent implements OnInit {
     try {
       await this.auth.iniciarSesion(usuario, contrasenia);
       console.log("logueo exitoso");
-      this.auth.isLogged()
-      this.router.navigate(['inventario'])
+      this.auth.status = true
+      await this.router.navigate(['inventario'])
     } catch (error: any) {
       console.log("ocurrio un error" + error);
     }

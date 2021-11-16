@@ -19,6 +19,8 @@ export class FirebaseService {
   private productosMesa5: AngularFirestoreCollection<Mesa>;
   private productosMesa6: AngularFirestoreCollection<Mesa>;
   private vetas: AngularFirestoreCollection<Venta>;
+  public status = false
+
 
 
   constructor(private auth: AngularFireAuth, private angularFirestore: AngularFirestore) {
@@ -33,18 +35,23 @@ export class FirebaseService {
   }
 
   iniciarSesion(usuario: string, contrasenia: string) {
-    return this.auth.signInWithEmailAndPassword(usuario, contrasenia);
+    return this.auth.signInWithEmailAndPassword(usuario, contrasenia)
   }
 
   cerrarSesion() {
+    this.status = false
     return this.auth.signOut();
+
   }
 
   isLogged() {
     this.auth.authState.subscribe(usuario => {
       let user = <string>usuario?.providerData[0]?.email
-      localStorage.setItem('user', user)
+     if(user != null){
+       this.status = true
+     }
     })
+    return this.status
   }
 
   mostrarProductosMesa1(){

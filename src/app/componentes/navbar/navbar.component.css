@@ -2,6 +2,8 @@
   width: 100%;
   padding: 10px 0 0 0;
   gap: 20px;
+  display: flex;
+  flex-direction: row;
 }
 
 .contenedor-logo{
@@ -20,8 +22,9 @@
 }
 
 .navbar-nav{
-  display: flex;
   padding-left: 25px;
+  display: flex;
+  flex-direction: row;
 }
 
 .nav-item{
@@ -48,6 +51,8 @@
     width: 100%;
     padding: 5px 0 0 0;
     gap: 15px;
+    display: flex;
+    flex-direction: row;
   }
 
   .contenedor-logo{
@@ -64,6 +69,7 @@
 
   .navbar-nav{
     display: flex;
+    flex-direction: row;
     padding-left: 20px;
   }
 

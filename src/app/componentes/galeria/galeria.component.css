@@ -1,22 +1,24 @@
 .galeria-contenedor{
-  width: 95%;
-  margin: 0 auto;
+  width: 100%;
+  margin: auto;
   text-align: center;
   padding-bottom: 10px;
 }
 
 .galeria-titulo{
   text-align: center;
-  letter-spacing: 4.2rem;
-  padding: 50px 0;
-  font-size: 1.7rem;
+  letter-spacing: 1.8rem;
+  padding: 30px 0;
+  font-size: 2rem;
 }
 
 
 .galeria-contenedor .galeria-item{
   width: 25%;
-  height: 35%;
-  padding: 20px;
+  height: auto;
+  padding: 15px;
+  text-align: center;
+  line-height: normal;
 }
 
 .galeria-contenedor .galeria-item:hover{
@@ -25,24 +27,28 @@
   box-shadow: .5px .5px .5px .5px rgba(0, 0, 0, 0.15);
 }
 
-.circular--square {
-  border-radius: 45%;
+
+@media screen and (max-width: 800px) {
+  .galeria-titulo{
+    letter-spacing: 1.4rem;
+    font-size: 1.6rem;
+  }
+
+  .galeria-item{
+    text-align: center;
+    width: 50%;
+  }
 }
 
-.circle{
-  width:100px;
-  height:100px;
-  border-radius:50px;
-  font-size:20px;
-  color:#fff;
-  line-height:100px;
-  text-align:center;
-  background:#000
-}
+@media screen and (max-width: 500px) {
+  .galeria-titulo{
+    letter-spacing: 1.2rem;
+    font-size: 1.4rem;
+  }
 
-@media all and (max-width: 575px) {
-  .galeria-base{
-    margin-top: 50%;
+  .galeria-item{
+    text-align: center;
+    width: 30%;
   }
 }
 

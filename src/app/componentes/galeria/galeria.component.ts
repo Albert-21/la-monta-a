@@ -8,9 +8,6 @@ import {Lightbox} from "ngx-lightbox";
   styleUrls: ['./galeria.component.css']
 })
 export class GaleriaComponent {
-  imagenes = document.querySelectorAll(".img-fluid");
-  imagenesLight = document.querySelector(".agregar-imagen");
-  contenedorlight = document.querySelector(".imagen-light");
   _album: Array<any> = [];
   status: Boolean = false;
 

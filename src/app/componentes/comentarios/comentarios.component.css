@@ -1,21 +1,6 @@
-.ventas-mesa{
-  width: 90%;
-  margin: auto;
-}
-
-.titulo-venta{
-  text-align: center;
-  font-size: 1.8rem;
+.comentarios-contenedor{
   padding: 20px 0;
-  letter-spacing: 10px;
-  font-weight: bolder;
 }
-
-.tabla-ventas{
-  box-shadow: 3px 3px 3px 3px rgba(0, 0, 0, 0.25);
-  border-radius: 6px;
-}
-
 /* menu Cards*/
 .menu-cards {
   display: grid;
@@ -55,72 +40,22 @@
   text-decoration: underline;
 }
 
-/*Form ventas*/
-.card {
-  padding: 30px 40px;
-  margin-top: 60px;
-  margin-bottom: 60px;
-  border: none !important;
-  box-shadow: 0 6px 12px 0 rgba(0, 0, 0, 0.2)
+.titulo{
+  font-size: 1.8rem;
+  font-weight: bold;
+  letter-spacing: 5px;
+  text-align: center;
+  margin-bottom: 20px;
 }
 
-.blue-text {
-  color: #3E48C2;
-}
-
-.form-control-label {
-  margin-bottom: 0
-}
-
-input,
-textarea,
-button {
-  padding: 8px 15px;
-  border-radius: 5px !important;
-  margin: 5px 0px;
-  box-sizing: border-box;
-  border: 1px solid #ccc;
-  font-size: 18px !important;
-  font-weight: 300
-}
-
-input:focus,
-textarea:focus {
-  -moz-box-shadow: none !important;
-  -webkit-box-shadow: none !important;
-  box-shadow: none !important;
-  border: 1px solid #00BCD4;
-  outline-width: 0;
-  font-weight: 400
-}
-
-.btn-block {
-  text-transform: uppercase;
-  font-size: 15px !important;
-  font-weight: 400;
-  height: 43px;
-  cursor: pointer
-}
-
-.btn-block:hover {
-  color: #fff !important
-}
-
-button:focus {
-  -moz-box-shadow: none !important;
-  -webkit-box-shadow: none !important;
-  box-shadow: none !important;
-  outline-width: 0
-}
-
-.contenedor-botones-group{
-  display: flex;
+/*tabla comentarios*/
+.inventario-op{
+  width: 95%;
   margin: auto;
 }
 
-.contenedor-boton{
-  width: 500px;
-  margin: 0 100px 30px;
+.btn-consultar{
+  margin: 10px 0px;
 }
 
 @media screen and (max-width: 800px) {
@@ -149,6 +84,21 @@ button:focus {
 
   .menu-cards a{
     font-size: .9rem;
+  }
+
+  .inventario-op{
+    width: 100%;
+    margin: auto;
+  }
+
+  .btn-consultar{
+    margin: 10px 0px;
+    font-size: .8rem;
+    width: 14%;
+  }
+
+  .tabla-comentarios th,td{
+    font-size: .7rem;
   }
 }
 
@@ -179,5 +129,19 @@ button:focus {
   .menu-cards a{
     font-size: .8rem;
   }
-}
 
+  .inventario-op{
+    width: 100%;
+    margin: auto;
+  }
+
+  .btn-consultar{
+    margin: 10px 0;
+    font-size: .6rem;
+    width: 14%;
+  }
+
+  .tabla-comentarios th,td{
+    font-size: .4rem;
+  }
+}

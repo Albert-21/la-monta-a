@@ -1,0 +1,54 @@
+<div class="comentarios-contenedor">
+  <div class="menu-cards">
+    <div class="contenido-cards">
+      <img src="assets/img/img-35.jpg" class="img-cards">
+      <h3 class="subtitulo-3">Ventas Totales</h3>
+      <p class="parrafo">$ {{totalVendido}} pesos</p>
+    </div>
+    <div class="contenido-cards">
+      <img src="assets/img/img-36.png" class="img-cards">
+      <h3 class="subtitulo-3">Fecha Actual</h3>
+      <p class="parrafo">Hoy es {{date.toLocaleDateString()}}</p>
+    </div>
+    <div class="contenido-cards">
+      <img src="assets/img/img-39.jpg" class="img-cards">
+      <h3 class="subtitulo-3">Ventas</h3>
+      <p class="parrafo">Realiza y consulta ventas desde aqui</p>
+      <a routerLink="/ventas">Conocer más<i class="fas fa-angle-double-right "></i></a>
+    </div>
+    <div class="contenido-cards">
+      <img src="assets/img/img-40.jpg" class="img-cards">
+      <h3 class="subtitulo-3">Inventario</h3>
+      <p class="parrafo">consulta tu inventario desde aquí</p>
+      <a routerLink="/inventario">Conocer más<i class="fas fa-angle-double-right "></i></a>
+    </div>
+  </div>
+  <h1 class="titulo">Comentarios</h1>
+
+  <section class="lista-comentarios">
+    <div class="col-12 inventario-op">
+      <h3 class="subtitulo-3">Consulta los comentarios enviados por los usuarios</h3>
+      <a class="btn btn-success mb-2 btn-consultar">Consultar</a>
+      <div class="tabla-comentarios">
+        <table class="table table-bordered">
+          <thead>
+          <tr>
+            <th>Comentario #</th>
+            <th>Nombre de la persona</th>
+            <th>Ciudad</th>
+            <th>País</th>
+            <th>Comentario</th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+          </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+</div>

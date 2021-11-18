@@ -1,30 +1,36 @@
 /* menu Cards*/
 .menu-cards {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
   gap: 20px;
   margin: auto;
   width: 90%;
-  padding: 40px 0;
+  padding: 30px 0;
   text-align: center;
 }
 
 .img-cards {
-  width: 80%;
+  width: 70%;
   height: auto;
   border-radius: 9px;
 }
 
 .subtitulo-3 {
-  font-size: 20px;
+  font-size: 1rem;
   margin: 10px 0;
 }
+
+.parrafo{
+  font-size: .8rem;
+}
+
 .menu-cards a{
   padding: 10px 0;
   color: #3E48C2;
   text-transform: uppercase;
   display: inline-block;
   font-weight: bold;
+  font-size: .7rem;
 }
 .menu-cards a:hover{
   opacity: .7;
@@ -37,7 +43,11 @@
 }
 
 .btn-guardar{
-  margin: 10px;
+  margin: 10px 0;
+}
+
+.tabla-productos th,td{
+  font-size: .9rem;
 }
 
 @media screen and (max-width: 800px) {
@@ -74,7 +84,9 @@
   }
 
   .btn-guardar{
-    margin: 10px;
+    margin: 10px 0px;
+    font-size: .8rem;
+    width: 14%;
   }
 
   .tabla-productos th,td{
@@ -121,7 +133,9 @@
   }
 
   .btn-guardar{
-    margin: 10px;
+    margin: 10px 0;
+    font-size: .6rem;
+    width: 14%;
   }
 
   .tabla-productos th,td{

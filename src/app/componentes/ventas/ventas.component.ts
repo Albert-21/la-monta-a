@@ -49,13 +49,12 @@ export class VentasComponent implements OnInit {
     this.productos = []
     this.productosVenta = []
     this.ventas = []
-    setGlobalDateMasks({
-      fortatoFecha: 'DD/MM/YY',
-      formatoHora: 'hh:mm:ss.SSS A',
-    })
   }
   ngOnInit(): void {
     this.mostrarProductos()
+  }
+  onSubmit() {
+      console.log("Form Submitted!");
   }
 
   public producto(){
@@ -71,42 +70,42 @@ export class VentasComponent implements OnInit {
       })
   }
 
-agregarProducto(){
-     // @ts-ignore
-  this.data_base.agregarPrductoMesa(this.idMesa,this.mesa).then(value => {
+agregarProducto(idmesa:string,productoId:string, productoid:string,nombreproducto:string, tipoproducto:string, precioProducto:string, CantPiezas:string){
+  // @ts-ignore
+  this.data_base.agregarPrductoMesa(idmesa,{
+    id: idmesa,
+    producto:{
+      id:productoId,
+      data: {
+        IdProducto: productoid,
+        Nombre: nombreproducto,
+        Tipo: tipoproducto,
+        Precio: parseInt(precioProducto),
+        Piezas: parseInt(CantPiezas),
+      },
+      subTotal:parseInt(precioProducto) * parseInt(CantPiezas)
+    }
+  }).then(value => {
        Swal.fire('Se guardo correctamente','',"success")
      })
   this.idMesa = ''
 
-
 }
 
-realizarVenta(){
+
+realizarVenta(idMesa:string){
   Swal.fire({
-    title: 'Seleccione la mesa',
-    html:
-      '<select id="selectTipo" placeholder="selecione" class="swal2-input">' +
-      '  <option selected="selected"></option>' +
-      '  <option>1</option>' +
-      '  <option>2</option>' +
-      '  <option>3</option>' +
-      '  <option>4</option>' +
-      '  <option>5</option>' +
-      '  <option>6</option>' +
-      '</select>',
+    title: 'Cobrar de la mesa: '+idMesa,
+    html:'',
     focusConfirm: false,
     showConfirmButton: true,
     showCancelButton: true,
     confirmButtonText: 'realizar',
-    denyButtonText: `Cancelar`,
-    preConfirm: () => {
-      const IdMesa = $('#selectTipo').val()
-      return IdMesa
-    }
+    denyButtonText: `Cancelar`
   }).then((result) =>{
     if(result.isConfirmed){
-      console.log(result.value)
-      switch (result.value) {
+      console.log(idMesa)
+      switch (idMesa) {
         case '1':
           var totalVenta = 0
           this.data_base.mostrarProductosMesa1().subscribe((productsSnapshot) => {
@@ -116,22 +115,26 @@ realizarVenta(){
                 id: productsData.payload.doc.id,
                 data: productsData.payload.doc.data()
               });
+
             });
           });
 
           this.venta.listaPrductos = this.productosVenta
           if(this.venta.listaPrductos.length > 0){
+            this.venta.listaPrductos.forEach(value => {
+              totalVenta += value.data.producto.subTotal
+            })
             this.venta = {
               fecha: format(new Date(),'DD/MM/YY'),
               hora: format(new Date(),'hh:mm:ss A'),
-              idMesa:result.value,
+              idMesa:idMesa,
               listaPrductos:this.productosVenta,
               totalVenta:totalVenta,
             }
             console.log(this.productosVenta)
             this.data_base.realizarVenta(this.venta).then(value => {
               Swal.fire('Se guardo correctamente la venta de la mesa 1','',"success")
-              this.data_base.borrarMesa(<string>result.value)
+              this.data_base.borrarMesa(idMesa)
             })
 
           }
@@ -151,17 +154,21 @@ realizarVenta(){
 
           this.venta.listaPrductos = this.productosVenta
           if(this.venta.listaPrductos.length > 0){
+            this.venta.listaPrductos.forEach(value => {
+              totalVenta += value.data.producto.subTotal
+            })
+
             this.venta = {
               fecha: format(new Date(),'DD/MM/YY'),
               hora: format(new Date(),'hh:mm:ss A'),
-              idMesa:result.value,
+              idMesa:idMesa,
               listaPrductos:this.productosVenta,
               totalVenta:totalVenta,
             }
             console.log(this.productosVenta)
             this.data_base.realizarVenta(this.venta).then(value => {
               Swal.fire('Se guardo correctamente la venta de la mesa 2','',"success")
-              this.data_base.borrarMesa(<string>result.value)
+              this.data_base.borrarMesa(idMesa)
             })
 
           }
@@ -180,17 +187,21 @@ realizarVenta(){
 
           this.venta.listaPrductos = this.productosVenta
           if(this.venta.listaPrductos.length > 0){
+            this.venta.listaPrductos.forEach(value => {
+              totalVenta += value.data.producto.subTotal
+            })
+
             this.venta = {
               fecha: format(new Date(),'DD/MM/YY'),
               hora: format(new Date(),'hh:mm:ss A'),
-              idMesa:result.value,
+              idMesa:idMesa,
               listaPrductos:this.productosVenta,
               totalVenta:totalVenta,
             }
             console.log(this.productosVenta)
             this.data_base.realizarVenta(this.venta).then(value => {
               Swal.fire('Se guardo correctamente la venta de la mesa 3','',"success")
-              this.data_base.borrarMesa(<string>result.value)
+              this.data_base.borrarMesa(idMesa)
             })
 
           }
@@ -209,17 +220,21 @@ realizarVenta(){
 
           this.venta.listaPrductos = this.productosVenta
           if(this.venta.listaPrductos.length > 0){
+            this.venta.listaPrductos.forEach(value => {
+              totalVenta += value.data.producto.subTotal
+            })
+
             this.venta = {
               fecha: format(new Date(),'DD/MM/YY'),
               hora: format(new Date(),'hh:mm:ss A'),
-              idMesa:result.value,
+              idMesa:idMesa,
               listaPrductos:this.productosVenta,
               totalVenta:totalVenta,
             }
             console.log(this.productosVenta)
             this.data_base.realizarVenta(this.venta).then(value => {
               Swal.fire('Se guardo correctamente la venta de la mesa 4','',"success")
-              this.data_base.borrarMesa(<string>result.value)
+              this.data_base.borrarMesa(idMesa)
             })
 
           }
@@ -238,17 +253,21 @@ realizarVenta(){
 
           this.venta.listaPrductos = this.productosVenta
           if(this.venta.listaPrductos.length > 0){
+            this.venta.listaPrductos.forEach(value => {
+              totalVenta += value.data.producto.subTotal
+            })
+
             this.venta = {
               fecha: format(new Date(),'DD/MM/YY'),
               hora: format(new Date(),'hh:mm:ss A'),
-              idMesa:result.value,
+              idMesa:idMesa,
               listaPrductos:this.productosVenta,
               totalVenta:totalVenta,
             }
             console.log(this.productosVenta)
             this.data_base.realizarVenta(this.venta).then(value => {
               Swal.fire('Se guardo correctamente la venta de la mesa 5','',"success")
-              this.data_base.borrarMesa(<string>result.value)
+              this.data_base.borrarMesa(idMesa)
             })
 
           }
@@ -267,17 +286,21 @@ realizarVenta(){
 
           this.venta.listaPrductos = this.productosVenta
           if(this.venta.listaPrductos.length > 0){
+            this.venta.listaPrductos.forEach(value => {
+              totalVenta += value.data.producto.subTotal
+            })
+
             this.venta = {
               fecha: format(new Date(),'DD/MM/YY'),
               hora: format(new Date(),'hh:mm:ss A'),
-              idMesa:result.value,
+              idMesa:idMesa,
               listaPrductos:this.productosVenta,
               totalVenta:totalVenta,
             }
             console.log(this.productosVenta)
             this.data_base.realizarVenta(this.venta).then(value => {
               Swal.fire('Se guardo correctamente la venta de la mesa 6','',"success")
-              this.data_base.borrarMesa(<string>result.value)
+              this.data_base.borrarMesa(idMesa)
             })
 
           }
@@ -371,6 +394,7 @@ mostrarVentas(){
         });
       });
     });
+
     console.log(this.ventas)
 }
 

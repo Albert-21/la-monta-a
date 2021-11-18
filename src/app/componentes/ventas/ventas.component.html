@@ -26,7 +26,7 @@
         <form class="form-card">
           <div class="row justify-content-between text-left">
             <div class="form-group col-sm-6 flex-column d-flex"><label class="form-control-label px-3">ID Mesa<span
-              class="text-danger"> *</span></label> <select class="form-control d-flex" type="number" name="idMesa" [(ngModel)]="idMesa" placeholder="Ingresa el ID de la mesa donde se guardará la venta" >
+              class="text-danger"> *</span></label> <select class="form-control d-flex" #idmesa type="number" name="idMesa" [(ngModel)]="idMesa" placeholder="Ingresa el ID de la mesa donde se guardará la venta" >
               <option selected="selected">Seleccione la mesa</option>
               <option>{{1}}</option>
               <option>{{2}}</option>
@@ -37,33 +37,35 @@
             </select>
             </div>
             <div class="form-group col-sm-6 flex-column d-flex"><label class="form-control-label px-3">ID del
-              producto<span class="text-danger"> *</span></label> <input [disabled]="true" [value]="mesa.producto.data.IdProducto" type="number" name="idProducto" [(ngModel)]="idProducto" placeholder="Ingresa el ID del producto" >
+              producto<span class="text-danger"> *</span></label> <input #idproducto [disabled]="true"  type="number" name="idProducto" [value]="mesa.producto.data.IdProducto" [(ngModel)]="idProducto" placeholder="Ingresa el ID del producto" >
             </div>
             <div class="form-group col-sm-6 flex-column d-flex"><label class="form-control-label px-3">Nombre del
-              producto<span class="text-danger"> *</span></label><select  class="form-control d-flex" name="NombreProducto" [(ngModel)]="NombreProducto" (click)="producto()">
+              producto<span class="text-danger"> *</span></label><select  class="form-control d-flex" #nombreproducto [value]="mesa.producto.data.Nombre"  [(ngModel)]="NombreProducto" name="NombreProducto" (click)="producto()">
               <option selected="selected">Seleccione el producto</option>
               <option *ngFor="let item of productos ; let i = index">{{item.data.Nombre}}</option>
             </select>
             </div>
           </div>
           <div class="form-group col-sm-6 flex-column d-flex"><label class="form-control-label px-3">Tipo de
-            producto<span class="text-danger"> *</span></label> <input [disabled]="true" [value]="mesa.producto.data.Tipo" type="text" placeholder="tipo">
+            producto<span class="text-danger"> *</span></label> <input #tipoproducto [value]="mesa.producto.data.Tipo" [disabled]="true"  type="text" placeholder="tipo">
           </div>
           <div class="row justify-content-between text-left">
             <div class="form-group col-sm-6 flex-column d-flex"><label class="form-control-label px-3">Cantidad
-              <span class="text-danger"> *</span></label> <input [(ngModel)]="piezas" type="number" name="piezas" placeholder="Ingresa la cantidad de piezas a vender">
+              <span class="text-danger"> *</span></label> <input #CantPiezas type="number" name="piezas" placeholder="Ingresa la cantidad de piezas a vender">
             </div>
             <div class="form-group col-sm-6 flex-column d-flex"><label class="form-control-label px-3">Precio<span
-              class="text-danger"> *</span></label> <input type="text" [disabled]="true" [value]="mesa.producto.data.Precio" placeholder="Ingresa el precio del producto"></div>
-          </div>
-          <div class="row justify-content-center">
-            <div class="form-group col-sm-10">
-              <button type="submit" class="btn-block btn-primary" (click)="agregarProducto()">Añadir producto</button>
-            </div>
+              class="text-danger"> *</span></label> <input #precioProducto type="number" [disabled]="true" [value]="mesa.producto.data.Precio" placeholder="Ingresa el precio del producto"></div>
           </div>
           <div class="row justify-content-end">
             <div class="form-group col-sm-4">
-              <button type="submit" (click)="realizarVenta()" class="btn-block btn-primary">Realizar venta</button>
+              <button type="submit" (click)="agregarProducto(
+                                idmesa.value,
+                                mesa.producto.id,
+                                idproducto.value,
+                                nombreproducto.value,
+                                tipoproducto.value,
+                                precioProducto.value,
+                                CantPiezas.value)" class="btn-block btn-primary">Realizar venta</button>
             </div>
           </div>
         </form>
@@ -75,40 +77,47 @@
 <div class="d-flex justify-content-center text-center">
   <div class="col-lg-10">
     <div class="card">
-      <div class="card-body">
-        <h4 class="card-title">Historial de productos de la mesa</h4>
-        <div class="form-group col-sm-6 flex-column d-flex"><label class="form-control-label px-3">ID Mesa<span
-          class="text-danger"> *</span></label> <select class="form-control d-flex" type="number" name="idMesa" [(ngModel)]="idMesa" (click)="historialMesa()" placeholder="Ingresa el ID de la mesa donde se guardará la venta" >
-          <option selected="selected">Ingresa el ID de la mesa para consultar las productos de la mesa</option>
-          <option>1</option>
-          <option>2</option>
-          <option>3</option>
-          <option>4</option>
-          <option>5</option>
-          <option>6</option>
-        </select></div>
-        <div class="table-responsive">
-          <table class="table table-striped">
-            <thead>
-            <tr>
-              <th>Producto</th>
-              <th> Precio</th>
-              <th> Piezas </th>
-              <th> Total</th>
-            </tr>
-            </thead>
-            <tbody>
-            <tr *ngFor="let item of productosVenta ; let i = index;">
-              <td>{{item.data.producto.data.Nombre}}</td>
-              <td> {{item.data.producto.data.Precio}} </td>
-              <td> {{item.data.producto.data.Piezas}}</td>
-              <td> ${{item.data.producto.subTotal}}</td>
-            </tr>
+      <form >
+        <div class="card-body">
+          <h4 class="card-title">Historial de productos de la mesa</h4>
+          <div class="form-group col-sm-6 flex-column d-flex"><label class="form-control-label px-3">ID Mesa<span
+            class="text-danger"> *</span></label> <select #IDmesa class="form-control d-flex" type="number" name="idMesa" [(ngModel)]="idMesa" (click)="historialMesa()" placeholder="Ingresa el ID de la mesa donde se guardará la venta" >
+            <option selected="selected">Ingresa el ID de la mesa para consultar las productos de la mesa</option>
+            <option>1</option>
+            <option>2</option>
+            <option>3</option>
+            <option>4</option>
+            <option>5</option>
+            <option>6</option>
+          </select></div>
+          <div class="table-responsive">
+            <table class="table table-striped">
+              <thead>
+              <tr>
+                <th>Producto</th>
+                <th> Precio</th>
+                <th> Piezas </th>
+                <th> Total</th>
+              </tr>
+              </thead>
+              <tbody>
+              <tr *ngFor="let item of productosVenta ; let i = index;">
+                <td>{{item.data.producto.data.Nombre}}</td>
+                <td> {{item.data.producto.data.Precio}} </td>
+                <td> {{item.data.producto.data.Piezas}}</td>
+                <td> ${{item.data.producto.subTotal}}</td>
+              </tr>
 
-            </tbody>
-          </table>
+              </tbody>
+            </table>
+          </div>
         </div>
-      </div>
+        <div class="row justify-content-end">
+          <div class="form-group col-sm-4">
+            <button type="submit" (click)="realizarVenta(IDmesa.value)" class="btn-block btn-primary">Realizar venta</button>
+          </div>
+        </div>
+      </form>
     </div>
   </div>
 </div>
@@ -170,5 +179,4 @@
     </div>
   </div>
 </div>
-
 

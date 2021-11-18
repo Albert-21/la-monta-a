@@ -35,7 +35,10 @@ export class FirebaseService {
   }
 
   iniciarSesion(usuario: string, contrasenia: string) {
-    return this.auth.signInWithEmailAndPassword(usuario, contrasenia)
+
+    return this.auth.setPersistence('session').then(_ => {
+      return this.auth.signInWithEmailAndPassword(usuario, contrasenia)
+    });
   }
 
   cerrarSesion() {

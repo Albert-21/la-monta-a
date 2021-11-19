@@ -20,9 +20,10 @@
 }
 
 .contactanos-item-titulo{
+  letter-spacing: 1.6px;
   font-size: 1.4rem;
   margin: 10px 0;
-  color: #000000;
+  color: #07AB4F;
 }
 
 .contactanos-link{
@@ -38,8 +39,7 @@
 }
 
 .logo {
-  width: 45%;
-  margin-bottom: 40px;
+  width: 35%;
 }
 
 .contactanos-body {
@@ -58,23 +58,33 @@
 }
 
 .icono{
-  color: #000000;
-  background-color: #ffffff;
-  font-size: 15px;
-  padding-right: 5px;
+  padding-right: 4px;
 }
 
 @media screen and (max-width: 800px) {
   .contactanos-titulo{
-    letter-spacing: 1.1rem;
+    letter-spacing: 1rem;
     font-size: 1.6rem;
   }
-
-  .logo{
-    width: 40%;
-    margin-bottom: 35px;
+  .contactanos-subtitulo{
+    font-size: 1.2rem;
+    margin: 10px 0;
   }
 
+  .contactanos-item-titulo{
+    font-size: 1.1rem;
+    margin: 10px 0;
+  }
+  .contactanos-link{
+    font-size: .9rem;
+  }
+  p{
+    font-size: 1rem;
+  }
+  .logo{
+    width: 40%;
+    margin-bottom: 20px;
+  }
   .contactanos-body{
     width: 90%;
   }
@@ -82,16 +92,28 @@
 
 @media screen and (max-width: 500px) {
   .contactanos-titulo{
-    letter-spacing: .9rem;
+    letter-spacing: .7rem;
     font-size: 1.4rem;
   }
-
+  .contactanos-subtitulo{
+    font-size: .9rem;
+    margin: 10px 0;
+  }
+  .contactanos-item-titulo{
+    font-size: 1rem;
+    margin: 10px 0;
+  }
+  .contactanos-link{
+    font-size: .9rem;
+  }
+  p{
+    font-size: .9rem;
+  }
   .logo{
     width: 40%;
-    margin-bottom: 30px;
+    margin-bottom: 20px;
   }
-
   .contactanos-body{
-    width: 70%;
+    width: 90%;
   }
 }

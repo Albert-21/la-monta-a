@@ -5,6 +5,7 @@ import {ContactanosComponent} from './componentes/contactanos/contactanos.compon
 import {HomeComponent} from './componentes/home/home.component';
 import {MenuComponent} from './componentes/menu/menu.component';
 import {CuentanosTuExperienciaComponent} from './componentes/cuentanos-tu-experiencia/cuentanos-tu-experiencia.component';
+import {ComentariosComponent} from "./componentes/comentarios/comentarios.component";
 import {GaleriaComponent} from './componentes/galeria/galeria.component';
 import {LoginComponent} from './componentes/login/login.component';
 import {UbicacionComponent} from './componentes/ubicacion/ubicacion.component';
@@ -42,6 +43,10 @@ const routes: Routes = [
   {
     path: "cuentanos-tu-experiencia",
     component: CuentanosTuExperienciaComponent
+  },
+  {
+    path: "comentarios",
+    component: ComentariosComponent
   },
   {
     path: "galeria",

@@ -70,6 +70,10 @@ export class VentasComponent implements OnInit {
 
 agregarProducto(idmesa:string,productoId:string, productoid:string,nombreproducto:string, tipoproducto:string, precioProducto:string, CantPiezas:string){
   // @ts-ignore
+
+
+
+
   this.data_base.agregarPrductoMesa(idmesa,{
     id: idmesa,
     producto:{

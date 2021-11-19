@@ -45,10 +45,6 @@ const routes: Routes = [
     component: CuentanosTuExperienciaComponent
   },
   {
-    path: "comentarios",
-    component: ComentariosComponent
-  },
-  {
     path: "galeria",
     component: GaleriaComponent
   },
@@ -65,6 +61,12 @@ const routes: Routes = [
   {
     path: "ventas",
     component: VentasComponent,
+    canActivate: [AngularFireAuthGuard],
+    data: { authGuardPipe: redirectUnauthorizedToLogin }
+  },
+  {
+    path: "comentarios",
+    component: ComentariosComponent,
     canActivate: [AngularFireAuthGuard],
     data: { authGuardPipe: redirectUnauthorizedToLogin }
   },

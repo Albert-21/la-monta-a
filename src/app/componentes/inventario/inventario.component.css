@@ -16,8 +16,10 @@
 }
 
 .subtitulo-3 {
-  font-size: 1rem;
+  letter-spacing: .1rem;
+  font-size: 1.4rem;
   margin: 10px 0;
+  text-align: center;
 }
 
 .parrafo{
@@ -44,6 +46,10 @@
 
 .btn-guardar{
   margin: 10px 0;
+}
+
+.botones-contenedor{
+  text-align: center;
 }
 
 .tabla-productos th,td{

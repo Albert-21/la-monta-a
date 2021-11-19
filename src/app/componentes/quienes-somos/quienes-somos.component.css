@@ -1,32 +1,65 @@
+/*Quienes somos*/
 .quienes-somos-contenedor {
   display: flex;
   justify-content: space-evenly;
   align-items: center;
   flex-wrap: wrap;
-  height: 400px;
 }
 
-.quienes-somos-contenedor .logo{
-  width: 20%;
+.quienes-somos-titulo{
+  letter-spacing: 1.6px;
+  font-size: 1.4rem;
+  margin: 10px 0;
+  text-align: center;
+}
+p{
+  text-align: center;
+}
+.quienes-somos-body {
+  width: 60%;
+  padding-bottom: 30px;
+}
+.logo{
+  width: 30%;
 }
 
-.quienes-somos-info{
-  width: 45%;
-}
 
-.quienes-somos-titulos{
-  font-size: 1.5rem;
-  padding: 15px 0;
-}
-
-@media all and (max-width: 575px){
-  .quienes-base{
-    margin-top: 45%;
+@media screen and (max-width: 800px) {
+  .quienes-somos-titulo{
+    letter-spacing: .4rem;
+    font-size: 1.5rem;
+    text-align: center;
   }
-  .quienes-somos-contenedor .logo{
+  p{
+    padding-top: 5px;
+    font-size: 1rem;
+    text-align: center;
+  }
+  .logo{
     width: 40%;
+    margin-bottom: 20px;
   }
-  .quienes-somos-info{
-    text-align: justify;
+  .quienes-somos-body{
+    width: 90%;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .quienes-somos-titulo{
+    letter-spacing: .3rem;
+    font-size: 1.2rem;
+    text-align: center;
+  }
+  p{
+    font-size: .8rem;
+    padding-top: 5px;
+    text-align: center;
+  }
+  .logo{
+    width: 40%;
+    margin-bottom: 20px;
+  }
+  .quienes-somos-body{
+    width: 90%;
   }
 }

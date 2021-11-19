@@ -3,17 +3,43 @@
   margin: auto;
   padding-top: 50px;
 }
-
-.aviso-privacidad-contenedor .subtitulos{
+.titulo{
+  letter-spacing: 1.6px;
+  font-size: 1.4rem;
+  margin: 10px 0;
+  text-align: center;
+}
+.titulo-parrafo{
   font-weight: bold;
   font-size: 1rem;
 }
 
-@media all and (max-width: 575px){
-  .avisos-base{
-    margin-top: 45%;
+@media screen and (max-width: 800px) {
+  .titulo{
+    letter-spacing: .4rem;
+    font-size: 1.5rem;
+    text-align: center;
   }
-  .aviso-privacidad-contenedor{
-    text-align: justify;
+  p{
+    font-size: .8rem;
   }
+  .titulo-parrafo{
+    font-size: 1rem;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .titulo{
+    letter-spacing: .3rem;
+    font-size: 1.2rem;
+    text-align: center;
+  }
+  p{
+    font-size: .8rem;
+  }
+
+  .titulo-parrafo{
+    font-size: .9rem;
+  }
+
 }

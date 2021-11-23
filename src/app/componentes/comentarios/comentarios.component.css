@@ -49,6 +49,11 @@
 }
 
 /*tabla comentarios*/
+.tabla-comentarios th,td{
+  padding: .2rem .1rem;
+  text-align: center;
+}
+
 .inventario-op{
   width: 95%;
   margin: auto;

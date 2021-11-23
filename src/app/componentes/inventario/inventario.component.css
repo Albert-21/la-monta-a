@@ -54,6 +54,8 @@
 
 .tabla-productos th,td{
   font-size: .9rem;
+  padding: .3rem 0;
+  text-align: center;
 }
 
 @media screen and (max-width: 800px) {

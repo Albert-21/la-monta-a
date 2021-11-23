@@ -19,6 +19,7 @@ export class VentasComponent implements OnInit {
   ventas:Array<any>;
   date= new Date();
   productos:Array<any>
+  productosInventario:Array<any>
   productosVenta:Array<any>
   idProducto:number = 0
   idMesa: string = ''
@@ -47,12 +48,34 @@ export class VentasComponent implements OnInit {
 
   constructor(private data_base: FirebaseService) {
     this.productos = []
+    this.productosInventario = []
     this.productosVenta = []
     this.ventas = []
     this.mostrarVentas('TODAS')
+    this.totalVentas()
+    this.productosDeInventario()
   }
   ngOnInit(): void {
     this.mostrarProductos()
+    this.totalVentas()
+    this.productosDeInventario()
+  }
+   private totalVentas() {
+     this.ventas.forEach( value => {
+       this.totalVendido += value.data.totalVenta
+     })
+  }
+
+  private productosDeInventario(){
+    this.data_base.mostrarPrductos().subscribe((productsSnapshot) => {
+      this.productosInventario = []
+      productsSnapshot.forEach((productsData: any) => {
+        this.productosInventario.push({
+          id: productsData.payload.doc.id,
+          data: productsData.payload.doc.data()
+        });
+      });
+    });
   }
 
   public producto(){
@@ -69,34 +92,50 @@ export class VentasComponent implements OnInit {
   }
 
 agregarProducto(idmesa:string,productoId:string, productoid:string,nombreproducto:string, tipoproducto:string, precioProducto:string, CantPiezas:string){
-  // @ts-ignore
+  let alerta = false
+  this.productosInventario.forEach(value => {
+    if (value.data.IdProducto === productoid ){
+      if(parseInt(CantPiezas) > 0 ){
+        if(parseInt(CantPiezas) > value.data.Piezas){
+          Swal.fire({icon: "warning", titleText: 'Upss!', text:'no hay producto suficiente solo hay en existencia '+ value.data.Piezas})
+        }else {
+          alerta = true
+        }
+      }else {
+        Swal.fire({icon: "error", titleText: 'Error!', text:'Ingrese una cantidad positiva'})
 
+      }
 
-
-
-  this.data_base.agregarPrductoMesa(idmesa,{
-    id: idmesa,
-    producto:{
-      id:productoId,
-      data: {
-        IdProducto: productoid,
-        Nombre: nombreproducto,
-        Tipo: tipoproducto,
-        Precio: parseInt(precioProducto),
-        Piezas: parseInt(CantPiezas),
-      },
-      subTotal:parseInt(precioProducto) * parseInt(CantPiezas)
     }
-  }).then(value => {
-       Swal.fire('Se guardo correctamente','',"success")
-     })
-  this.idMesa = ''
+  });
+  if (alerta){
+    // @ts-ignore
+    this.data_base.agregarPrductoMesa(idmesa,{
+      id: idmesa,
+      producto:{
+        id:productoId,
+        data: {
+          IdProducto: productoid,
+          Nombre: nombreproducto,
+          Tipo: tipoproducto,
+          Precio: parseInt(precioProducto),
+          Piezas: parseInt(CantPiezas),
+        },
+        subTotal:parseInt(precioProducto) * parseInt(CantPiezas)
+      }
+    }).then(value => {
+      Swal.fire('Se guardo correctamente','',"success")
+    })
+    this.idMesa = ''
+
+  }
 
 }
 
 
 realizarVenta(idMesa:string){
     if(idMesa != 'Ingresa el ID de la mesa para consultar las productos de la mesa'){
+      this.productosDeInventario()
       Swal.fire({
         title: 'Cobrar de la mesa: '+idMesa,
         html:'',
@@ -134,9 +173,18 @@ realizarVenta(idMesa:string){
                   listaPrductos:this.productosVenta,
                   totalVenta:totalVenta,
                 }
-                console.log(this.productosVenta)
+
                 this.data_base.realizarVenta(this.venta).then(value => {
                   Swal.fire('Se guardo correctamente la venta de la mesa 1','',"success")
+                  this.venta.listaPrductos.forEach(value => {
+                    this.productosInventario.forEach( value1 => {
+                      if(value.data.producto.id === value1.id){
+                        let temp = parseInt(value1.data.Piezas) - parseInt(value.data.producto.data.Piezas)
+                        value1.data.Piezas = temp
+                        this.data_base.actualizarProducto(value1.id,value1.data)
+                      }
+                    })
+                  })
                   this.data_base.borrarMesa(idMesa)
                 })
 
@@ -171,6 +219,15 @@ realizarVenta(idMesa:string){
                 console.log(this.productosVenta)
                 this.data_base.realizarVenta(this.venta).then(value => {
                   Swal.fire('Se guardo correctamente la venta de la mesa 2','',"success")
+                  this.venta.listaPrductos.forEach(value => {
+                    this.productosInventario.forEach( value1 => {
+                      if(value.data.producto.id === value1.id){
+                        let temp = parseInt(value1.data.Piezas) - parseInt(value.data.producto.data.Piezas)
+                        value1.data.Piezas = temp
+                        this.data_base.actualizarProducto(value1.id,value1.data)
+                      }
+                    })
+                  })
                   this.data_base.borrarMesa(idMesa)
                 })
 
@@ -204,6 +261,15 @@ realizarVenta(idMesa:string){
                 console.log(this.productosVenta)
                 this.data_base.realizarVenta(this.venta).then(value => {
                   Swal.fire('Se guardo correctamente la venta de la mesa 3','',"success")
+                  this.venta.listaPrductos.forEach(value => {
+                    this.productosInventario.forEach( value1 => {
+                      if(value.data.producto.id === value1.id){
+                        let temp = parseInt(value1.data.Piezas) - parseInt(value.data.producto.data.Piezas)
+                        value1.data.Piezas = temp
+                        this.data_base.actualizarProducto(value1.id,value1.data)
+                      }
+                    })
+                  })
                   this.data_base.borrarMesa(idMesa)
                 })
 
@@ -237,6 +303,15 @@ realizarVenta(idMesa:string){
                 console.log(this.productosVenta)
                 this.data_base.realizarVenta(this.venta).then(value => {
                   Swal.fire('Se guardo correctamente la venta de la mesa 4','',"success")
+                  this.venta.listaPrductos.forEach(value => {
+                    this.productosInventario.forEach( value1 => {
+                      if(value.data.producto.id === value1.id){
+                        let temp = parseInt(value1.data.Piezas) - parseInt(value.data.producto.data.Piezas)
+                        value1.data.Piezas = temp
+                        this.data_base.actualizarProducto(value1.id,value1.data)
+                      }
+                    })
+                  })
                   this.data_base.borrarMesa(idMesa)
                 })
 
@@ -270,6 +345,15 @@ realizarVenta(idMesa:string){
                 console.log(this.productosVenta)
                 this.data_base.realizarVenta(this.venta).then(value => {
                   Swal.fire('Se guardo correctamente la venta de la mesa 5','',"success")
+                  this.venta.listaPrductos.forEach(value => {
+                    this.productosInventario.forEach( value1 => {
+                      if(value.data.producto.id === value1.id){
+                        let temp = parseInt(value1.data.Piezas) - parseInt(value.data.producto.data.Piezas)
+                        value1.data.Piezas = temp
+                        this.data_base.actualizarProducto(value1.id,value1.data)
+                      }
+                    })
+                  })
                   this.data_base.borrarMesa(idMesa)
                 })
 
@@ -303,6 +387,15 @@ realizarVenta(idMesa:string){
                 console.log(this.productosVenta)
                 this.data_base.realizarVenta(this.venta).then(value => {
                   Swal.fire('Se guardo correctamente la venta de la mesa 6','',"success")
+                  this.venta.listaPrductos.forEach(value => {
+                    this.productosInventario.forEach( value1 => {
+                      if(value.data.producto.id === value1.id){
+                        let temp = parseInt(value1.data.Piezas) - parseInt(value.data.producto.data.Piezas)
+                        value1.data.Piezas = temp
+                        this.data_base.actualizarProducto(value1.id,value1.data)
+                      }
+                    })
+                  })
                   this.data_base.borrarMesa(idMesa)
                 })
 
@@ -390,8 +483,6 @@ historialMesa(){
 
 }
 mostrarVentas(idMESA:any){
-
-    console.log(idMESA)
     switch (idMESA) {
       case 'TODAS':
         this.data_base.mostrarVentas().subscribe( (ventasSnapshot) => {
@@ -403,9 +494,8 @@ mostrarVentas(idMESA:any){
               data: ventasData.payload.doc.data(),
             });
           });
-          this.ventas.forEach( value => {
-            this.totalVendido += value.data.totalVenta
-          })
+          this.totalVentas()
+
         });
         break;
       case '1':
@@ -418,9 +508,8 @@ mostrarVentas(idMESA:any){
               data: ventasData.payload.doc.data(),
             });
           });
-          this.ventas.forEach( value => {
-            this.totalVendido += value.data.totalVenta
-          })
+          this.totalVentas()
+
           let temp:Array<any> = []
           this.ventas.forEach( value => {
             if(value.data.idMesa === '1' ){
@@ -441,9 +530,8 @@ mostrarVentas(idMESA:any){
               data: ventasData.payload.doc.data(),
             });
           });
-          this.ventas.forEach( value => {
-            this.totalVendido += value.data.totalVenta
-          })
+          this.totalVentas()
+
           let temp:Array<any> = []
           this.ventas.forEach( value => {
             if(value.data.idMesa === '2' ){
@@ -464,9 +552,8 @@ mostrarVentas(idMESA:any){
               data: ventasData.payload.doc.data(),
             });
           });
-          this.ventas.forEach( value => {
-            this.totalVendido += value.data.totalVenta
-          })
+          this.totalVentas()
+
           let temp:Array<any> = []
           this.ventas.forEach( value => {
             if(value.data.idMesa === '3' ){
@@ -487,9 +574,8 @@ mostrarVentas(idMESA:any){
               data: ventasData.payload.doc.data(),
             });
           });
-          this.ventas.forEach( value => {
-            this.totalVendido += value.data.totalVenta
-          })
+          this.totalVentas()
+
           let temp:Array<any> = []
           this.ventas.forEach( value => {
             if(value.data.idMesa === '4' ){
@@ -511,9 +597,8 @@ mostrarVentas(idMESA:any){
               data: ventasData.payload.doc.data(),
             });
           });
-          this.ventas.forEach( value => {
-            this.totalVendido += value.data.totalVenta
-          })
+          this.totalVentas()
+
           let temp:Array<any> = []
           this.ventas.forEach( value => {
             if(value.data.idMesa === '5' ){
@@ -535,9 +620,8 @@ mostrarVentas(idMESA:any){
               data: ventasData.payload.doc.data(),
             });
           });
-          this.ventas.forEach( value => {
-            this.totalVendido += value.data.totalVenta
-          })
+          this.totalVentas()
+
           let temp:Array<any> = []
           this.ventas.forEach( value => {
             if(value.data.idMesa === '6' ){

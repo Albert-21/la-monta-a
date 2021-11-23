@@ -91,8 +91,7 @@ export class InventarioComponent implements OnInit {
   }
 
   editar(index: number, id: string) {
-    console.log(index)
-    console.log(this.productos)
+
     Swal.fire({
       title: 'Editar Producto',
       html:

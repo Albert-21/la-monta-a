@@ -19,6 +19,7 @@ import { QuienesSomosComponent } from './componentes/quienes-somos/quienes-somos
 import { AvisoPrivacidadComponent } from './componentes/aviso-privacidad/aviso-privacidad.component';
 import { CuentanosTuExperienciaComponent } from './componentes/cuentanos-tu-experiencia/cuentanos-tu-experiencia.component';
 import { ContactanosComponent } from './componentes/contactanos/contactanos.component';
+import {ComentariosComponent} from "./componentes/comentarios/comentarios.component";
 import { VentasComponent } from './componentes/ventas/ventas.component';
 import { InventarioComponent } from './componentes/inventario/inventario.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -38,6 +39,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     QuienesSomosComponent,
     AvisoPrivacidadComponent,
     CuentanosTuExperienciaComponent,
+    ComentariosComponent,
     ContactanosComponent,
     VentasComponent,
     InventarioComponent

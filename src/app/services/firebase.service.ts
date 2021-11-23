@@ -20,6 +20,8 @@ export class FirebaseService {
   private productosMesa6: AngularFirestoreCollection<Mesa>;
   private vetas: AngularFirestoreCollection<Venta>;
   public status = false
+  public totalVendido:number = 0
+
 
 
 
@@ -103,6 +105,16 @@ export class FirebaseService {
   realizarVenta(venta:any){
     return this.vetas.add(venta)
   }
+
+  totalVentas() {
+    this.totalVendido = 0
+    this.vetas.snapshotChanges().subscribe( (ventasSnapshot) => {
+      ventasSnapshot.forEach((ventasData:any) => {
+          this.totalVendido +=  ventasData.payload.doc.data().totalVenta
+      });
+    });
+  }
+
 
   borrarMesa(idMesa:string){
     switch (idMesa) {

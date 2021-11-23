@@ -1,21 +1,3 @@
-.ventas-mesa{
-  width: 90%;
-  margin: auto;
-}
-
-.titulo-venta{
-  text-align: center;
-  font-size: 1.8rem;
-  padding: 20px 0;
-  letter-spacing: 10px;
-  font-weight: bolder;
-}
-
-.tabla-ventas{
-  box-shadow: 3px 3px 3px 3px rgba(0, 0, 0, 0.25);
-  border-radius: 6px;
-}
-
 /* menu Cards*/
 .menu-cards {
   display: grid;
@@ -55,21 +37,38 @@
   text-decoration: underline;
 }
 
-/*Form ventas*/
+/*Formulario ventas*/
+.formulario-ventas{
+  justify-content: center;
+  width: 90%;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  flex-wrap: wrap;
+  margin: auto;
+}
 .card {
   padding: 30px 40px;
   margin-top: 60px;
   margin-bottom: 60px;
   border: none !important;
-  box-shadow: 0 6px 12px 0 rgba(0, 0, 0, 0.2)
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+  border-radius: 10px;
+  width: 100%;
 }
-
+.card-body{
+  padding: 5px;
+}
+.ventas-titulo{
+  text-align: center;
+  font-size: 1.8rem;
+  padding: 20px 0;
+  letter-spacing: .2rem;
+  font-weight: 500;
+}
 .blue-text {
   color: #3E48C2;
-}
-
-.form-control-label {
-  margin-bottom: 0
+  text-align: center;
 }
 
 input,
@@ -81,48 +80,40 @@ button {
   box-sizing: border-box;
   border: 1px solid #ccc;
   font-size: 18px !important;
-  font-weight: 300
 }
 
-input:focus,
-textarea:focus {
-  -moz-box-shadow: none !important;
-  -webkit-box-shadow: none !important;
-  box-shadow: none !important;
-  border: 1px solid #00BCD4;
-  outline-width: 0;
-  font-weight: 400
-}
-
-.btn-block {
-  text-transform: uppercase;
-  font-size: 15px !important;
-  font-weight: 400;
-  height: 43px;
-  cursor: pointer
-}
-
-.btn-block:hover {
-  color: #fff !important
-}
-
-button:focus {
-  -moz-box-shadow: none !important;
-  -webkit-box-shadow: none !important;
-  box-shadow: none !important;
-  outline-width: 0
-}
-
-.contenedor-botones-group{
-  display: flex;
+.ventas-mesa{
+  width: 90%;
   margin: auto;
 }
 
-.contenedor-boton{
-  width: 500px;
-  margin: 0 100px 30px;
+/*formulario historial*/
+.formulario-historial{
+  justify-content: center;
+  width: 90%;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  flex-wrap: wrap;
+  margin: auto;
+}
+.tabla-ventas th{
+  padding: .2rem .3rem;
+  font-weight: 500;
+  text-align: center;
 }
 
+.tabla-ventas td{
+  padding: .2rem .3rem;
+  font-weight: 400;
+  text-align: center;
+  font-size: .9rem;
+}
+
+select{
+  padding: .2rem;
+  font-size: .8rem;
+}
 @media screen and (max-width: 800px) {
   .menu-cards {
     display: grid;
@@ -149,6 +140,33 @@ button:focus {
 
   .menu-cards a{
     font-size: .9rem;
+  }
+
+  /*Formulario ventas*/
+  .card {
+    padding: 20px 30px;
+    margin-top: 50px;
+    margin-bottom: 50px;
+  }
+  .ventas-titulo{
+    letter-spacing: .1rem;
+    font-size: 1.2rem;
+  }
+
+  .blue-text{
+    font-size: 1rem;
+  }
+  /*tablas-ventas*/
+  .tabla-ventas-contenedor{
+    padding-top: 20px;
+  }
+
+  .tabla-ventas th{
+    font-size: .7rem;
+  }
+
+  .tabla-ventas td{
+    font-size: .7rem;
   }
 }
 
@@ -178,6 +196,30 @@ button:focus {
 
   .menu-cards a{
     font-size: .8rem;
+  }
+
+  /*Formulario ventas*/
+  .card {
+    padding: 10px 20px;
+    margin-top: 40px;
+    margin-bottom: 40px;
+  }
+  .ventas-titulo{
+    letter-spacing: .1rem;
+    font-size: 1rem;
+  }
+
+  .blue-text{
+    font-size: 1rem;
+  }
+
+  /*tablas-ventas*/
+  .tabla-ventas th{
+    font-size: .7rem;
+  }
+
+  .tabla-ventas td{
+    font-size: .7rem;
   }
 }
 

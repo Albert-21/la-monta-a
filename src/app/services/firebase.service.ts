@@ -4,6 +4,7 @@ import {AngularFirestore, AngularFirestoreCollection} from "@angular/fire/compat
 import {Producto} from "../models/producto.model";
 import {Mesa} from "../models/mesa.model";
 import {Venta} from "../models/venta.model";
+import {Comentario} from "../models/comentario.model";
 
 
 @Injectable({
@@ -19,6 +20,7 @@ export class FirebaseService {
   private productosMesa5: AngularFirestoreCollection<Mesa>;
   private productosMesa6: AngularFirestoreCollection<Mesa>;
   private vetas: AngularFirestoreCollection<Venta>;
+  private comentariosCollection: AngularFirestoreCollection<Comentario>
   public status = false
   public totalVendido:number = 0
 
@@ -34,6 +36,7 @@ export class FirebaseService {
     this.productosMesa5 = angularFirestore.collection<Mesa>('mesa5')
     this.productosMesa6 = angularFirestore.collection<Mesa>('mesa6')
     this.vetas = angularFirestore.collection<Venta>('ventas')
+    this.comentariosCollection = angularFirestore.collection<Comentario>('comentarios')
   }
 
   iniciarSesion(usuario: string, contrasenia: string) {
@@ -182,5 +185,23 @@ export class FirebaseService {
 
   borrarProducto(documentId: string) {
     return this.productsCollection.doc(documentId).delete();
+  }
+
+  agregarComentario(comentario:Comentario){
+    return this.comentariosCollection.add(comentario)
+  }
+
+  mostrarComentarios(){
+    return this.comentariosCollection.snapshotChanges()
+  }
+  borrrComentario(id:string){
+    this.comentariosCollection.doc(id).delete()
+  }
+  borrarTodosComentarios(){
+    this.comentariosCollection.get().subscribe(function(querySnapshot) {
+      querySnapshot.forEach(function(doc) {
+        doc.ref.delete();
+      });
+    });
   }
 }

@@ -6,24 +6,46 @@
       <form>
         <div class="form-item">
           <label>Nombre Completo</label>
-          <input type="name" class="form-control" aria-describedby="name">
+          <input #nombre [value]="datos.nombreCompleto" type="name" class="form-control" aria-describedby="name">
         </div>
         <div class="form-item">
           <label>Ciudad</label>
-          <input type="city" class="form-control"  aria-describedby="city">
+          <input #ciudad [value]="datos.ciudad" type="city" class="form-control"  aria-describedby="city">
         </div>
         <div class="form-item">
           <label>País</label>
-          <input type="country" class="form-control" aria-describedby="country">
+          <input #pais [value]="datos.pais" type="country" class="form-control" aria-describedby="country">
         </div>
         <div class="form-item">
           <label>Comentario</label>
-          <textarea class="form-control" rows="2"></textarea>
+          <textarea #comentario [value]="datos.comentario" class="form-control" rows="2"></textarea>
         </div>
       </form>
       <div class="cte-botones-contenedor">
-        <button class="btn btn-primary btn-sm" type="button">Enviar Comentario</button>
+        <button class="btn btn-primary btn-sm" type="button"
+        (click)="guardarComentario(nombre.value,ciudad.value,pais.value,comentario.value)">Enviar Comentario</button>
       </div>
+      <table class="table table-bordered">
+        <thead>
+        <tr>
+          <th>Fecha</th>
+          <th>Nombre de la persona</th>
+          <th>Ciudad</th>
+          <th>País</th>
+          <th>Comentario</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let item of cometarios ; let i = index;">
+          <td>{{item.data.fecha}}</td>
+          <td>{{item.data.nombreCompleto}}</td>
+          <td>{{item.data.ciudad}}</td>
+          <td>{{item.data.pais}}</td>
+          <td>{{item.data.comentario}}</td>
+        </tr>
+        </tbody>
+      </table>
+
     </div>
   </div>
 </div>

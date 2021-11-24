@@ -149,4 +149,7 @@
   .tabla-comentarios th,td{
     font-size: .4rem;
   }
+  .eliminar-btn{
+    font-size: .6rem;
+  }
 }

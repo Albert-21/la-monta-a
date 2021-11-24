@@ -3,8 +3,8 @@ import Swal from "sweetalert2";
 import {FirebaseService} from "../../services/firebase.service";
 import {Mesa} from "../../models/mesa.model";
 import {Venta} from "../../models/venta.model";
-import { format , setGlobalDateMasks} from 'fecha';
-import * as $ from "jquery";
+import { format } from 'fecha';
+
 
 
 @Component({
@@ -61,9 +61,12 @@ export class VentasComponent implements OnInit {
     this.productosDeInventario()
   }
    private totalVentas() {
-     this.ventas.forEach( value => {
-       this.totalVendido += value.data.totalVenta
-     })
+     this.data_base.mostrarVentas().subscribe( (ventasSnapshot) => {
+       this.totalVendido = 0
+       ventasSnapshot.forEach((ventasData:any) => {
+          this.totalVendido += ventasData.payload.doc.data().totalVenta
+         });
+     });
   }
 
   private productosDeInventario(){
@@ -216,7 +219,6 @@ realizarVenta(idMesa:string){
                   listaPrductos:this.productosVenta,
                   totalVenta:totalVenta,
                 }
-                console.log(this.productosVenta)
                 this.data_base.realizarVenta(this.venta).then(value => {
                   Swal.fire('Se guardo correctamente la venta de la mesa 2','',"success")
                   this.venta.listaPrductos.forEach(value => {
@@ -258,7 +260,6 @@ realizarVenta(idMesa:string){
                   listaPrductos:this.productosVenta,
                   totalVenta:totalVenta,
                 }
-                console.log(this.productosVenta)
                 this.data_base.realizarVenta(this.venta).then(value => {
                   Swal.fire('Se guardo correctamente la venta de la mesa 3','',"success")
                   this.venta.listaPrductos.forEach(value => {
@@ -300,7 +301,6 @@ realizarVenta(idMesa:string){
                   listaPrductos:this.productosVenta,
                   totalVenta:totalVenta,
                 }
-                console.log(this.productosVenta)
                 this.data_base.realizarVenta(this.venta).then(value => {
                   Swal.fire('Se guardo correctamente la venta de la mesa 4','',"success")
                   this.venta.listaPrductos.forEach(value => {
@@ -342,7 +342,6 @@ realizarVenta(idMesa:string){
                   listaPrductos:this.productosVenta,
                   totalVenta:totalVenta,
                 }
-                console.log(this.productosVenta)
                 this.data_base.realizarVenta(this.venta).then(value => {
                   Swal.fire('Se guardo correctamente la venta de la mesa 5','',"success")
                   this.venta.listaPrductos.forEach(value => {
@@ -384,7 +383,6 @@ realizarVenta(idMesa:string){
                   listaPrductos:this.productosVenta,
                   totalVenta:totalVenta,
                 }
-                console.log(this.productosVenta)
                 this.data_base.realizarVenta(this.venta).then(value => {
                   Swal.fire('Se guardo correctamente la venta de la mesa 6','',"success")
                   this.venta.listaPrductos.forEach(value => {
@@ -487,28 +485,23 @@ mostrarVentas(idMESA:any){
       case 'TODAS':
         this.data_base.mostrarVentas().subscribe( (ventasSnapshot) => {
           this.ventas = []
-          this.totalVendido = 0
           ventasSnapshot.forEach((ventasData:any) => {
             this.ventas.push({
               id: ventasData.payload.doc.id,
               data: ventasData.payload.doc.data(),
             });
           });
-          this.totalVentas()
-
         });
         break;
       case '1':
         this.data_base.mostrarVentas().subscribe( (ventasSnapshot) => {
           this.ventas = []
-          this.totalVendido = 0
           ventasSnapshot.forEach((ventasData:any) => {
             this.ventas.push({
               id: ventasData.payload.doc.id,
               data: ventasData.payload.doc.data(),
             });
           });
-          this.totalVentas()
 
           let temp:Array<any> = []
           this.ventas.forEach( value => {
@@ -523,14 +516,12 @@ mostrarVentas(idMESA:any){
       case '2':
         this.data_base.mostrarVentas().subscribe( (ventasSnapshot) => {
           this.ventas = []
-          this.totalVendido = 0
           ventasSnapshot.forEach((ventasData:any) => {
             this.ventas.push({
               id: ventasData.payload.doc.id,
               data: ventasData.payload.doc.data(),
             });
           });
-          this.totalVentas()
 
           let temp:Array<any> = []
           this.ventas.forEach( value => {
@@ -545,14 +536,12 @@ mostrarVentas(idMESA:any){
       case '3':
         this.data_base.mostrarVentas().subscribe( (ventasSnapshot) => {
           this.ventas = []
-          this.totalVendido = 0
           ventasSnapshot.forEach((ventasData:any) => {
             this.ventas.push({
               id: ventasData.payload.doc.id,
               data: ventasData.payload.doc.data(),
             });
           });
-          this.totalVentas()
 
           let temp:Array<any> = []
           this.ventas.forEach( value => {
@@ -567,14 +556,12 @@ mostrarVentas(idMESA:any){
       case '4':
         this.data_base.mostrarVentas().subscribe( (ventasSnapshot) => {
           this.ventas = []
-          this.totalVendido = 0
           ventasSnapshot.forEach((ventasData:any) => {
             this.ventas.push({
               id: ventasData.payload.doc.id,
               data: ventasData.payload.doc.data(),
             });
           });
-          this.totalVentas()
 
           let temp:Array<any> = []
           this.ventas.forEach( value => {
@@ -590,14 +577,12 @@ mostrarVentas(idMESA:any){
       case '5':
         this.data_base.mostrarVentas().subscribe( (ventasSnapshot) => {
           this.ventas = []
-          this.totalVendido = 0
           ventasSnapshot.forEach((ventasData:any) => {
             this.ventas.push({
               id: ventasData.payload.doc.id,
               data: ventasData.payload.doc.data(),
             });
           });
-          this.totalVentas()
 
           let temp:Array<any> = []
           this.ventas.forEach( value => {
@@ -613,14 +598,12 @@ mostrarVentas(idMESA:any){
       case '6':
         this.data_base.mostrarVentas().subscribe( (ventasSnapshot) => {
           this.ventas = []
-          this.totalVendido = 0
           ventasSnapshot.forEach((ventasData:any) => {
             this.ventas.push({
               id: ventasData.payload.doc.id,
               data: ventasData.payload.doc.data(),
             });
           });
-          this.totalVentas()
 
           let temp:Array<any> = []
           this.ventas.forEach( value => {

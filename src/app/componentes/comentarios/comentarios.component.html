@@ -28,26 +28,34 @@
   <section class="lista-comentarios">
     <div class="col-12 inventario-op">
       <h3 class="subtitulo-3">Consulta los comentarios enviados por los usuarios</h3>
-      <a class="btn btn-success mb-2 btn-consultar">Consultar</a>
-      <div class="tabla-comentarios">
-        <table class="table table-bordered">
+      <button type="submit" class="btn btn-danger eliminar-btn" (click)="eliminarTodo()" >Eliminar todo <i class="fa fa-trash"></i></button>      <div class="tabla-comentarios">
+      <div>
+      <table class="table table-bordered">
           <thead>
           <tr>
-            <th>Comentario #</th>
+            <th>Fecha</th>
+            <th>Hora</th>
             <th>Nombre de la persona</th>
             <th>Ciudad</th>
             <th>País</th>
             <th>Comentario</th>
+            <th>Eliminar</th>
           </tr>
           </thead>
           <tbody>
-          <tr>
-            <td></td>
-            <td></td>
-            <td></td>
+          <tr *ngFor="let item of cometarios ; let i = index;">
+            <td *ngIf="false">{{item.id}}</td>
+            <td>{{item.data.fecha}}</td>
+            <td>{{item.data.hora}}</td>
+            <td>{{item.data.nombreCompleto}}</td>
+            <td>{{item.data.ciudad}}</td>
+            <td>{{item.data.pais}}</td>
+            <td>{{item.data.comentario}}</td>
+            <td><button type="submit" class="btn btn-danger eliminar-btn" (click)="eliminarComentario(item.id)" >Eliminar <i class="fa fa-trash"></i></button><td>
           </tr>
           </tbody>
         </table>
+      </div>
       </div>
     </div>
   </section>

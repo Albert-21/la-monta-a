@@ -12,16 +12,27 @@ import {DocumentChangeAction} from "@angular/fire/compat/firestore";
   styleUrls: ['./inventario.component.css']
 })
 export class InventarioComponent implements OnInit {
-  totalVendido = 510;
+  totalVendido = 0;
   date = new Date();
   productos: Array<any>
 
   constructor(private data_base: FirebaseService) {
     this.productos = []
+    this.totalVentas()
   }
 
   ngOnInit(): void {
     this.mostrarProductos()
+    this.totalVentas()
+  }
+
+  private totalVentas() {
+    this.data_base.mostrarVentas().subscribe( (ventasSnapshot) => {
+      this.totalVendido = 0
+      ventasSnapshot.forEach((ventasData:any) => {
+        this.totalVendido += ventasData.payload.doc.data().totalVenta
+      });
+    });
   }
 
   private mostrarProductos() {
@@ -40,7 +51,7 @@ export class InventarioComponent implements OnInit {
     Swal.fire({
       title: 'Producto',
       html:
-        '<input id="IdProducto" type="number" placeholder="IdProducto" class="swal2-input">' +
+        '<input min="1" id="IdProducto" type="number" placeholder="IdProducto" class="swal2-input">' +
         '<input id="Nombre" type="text" placeholder="Nombre" class="swal2-input">' +
         '<select id="selectTipo" placeholder="selecione" class="swal2-input">' +
         '  <option selected="selected"></option>\n' +
@@ -48,8 +59,8 @@ export class InventarioComponent implements OnInit {
         '  <option>Bebidas</option>\n' +
         '  <option>Comida del dia</option>\n' +
         '</select>' +
-        '<input id="Precio" type="number" placeholder="Precio" class="swal2-input">' +
-        '<input id="Piezas" type="number" placeholder="Piezas" class="swal2-input">',
+        '<input id="Precio"  min="1"  type="number" placeholder="Precio" class="swal2-input">' +
+        '<input id="Piezas"  min="1" type="number" placeholder="Piezas" class="swal2-input">',
       focusConfirm: false,
       showConfirmButton: true,
       showCancelButton: true,
@@ -95,15 +106,15 @@ export class InventarioComponent implements OnInit {
     Swal.fire({
       title: 'Editar Producto',
       html:
-        '<input id="IdProducto" type="number" value="' + this.productos[index].data.IdProducto + '" placeholder="IdProducto" class="swal2-input">' +
+        '<input min="1" id="IdProducto" type="number" value="' + this.productos[index].data.IdProducto + '" placeholder="IdProducto" class="swal2-input">' +
         '<input id="Nombre" type="text" value="' + this.productos[index].data.Nombre + '" placeholder="Nombre" class="swal2-input">' +
         '<select id="selectTipo" placeholder="selecione" class="swal2-input">' +
         '  <option selected="selected">' + this.productos[index].data.Tipo + '</option>\n' +
         '  <option>Del Comal</option>\n' +
         '  <option>Comida del dia</option>\n' +
         '</select>' +
-        '<input id="Precio" type="number" value="' + this.productos[index].data.Precio + '" placeholder="Precio" class="swal2-input">' +
-        '<input id="Piezas" type="number" value="' + this.productos[index].data.Piezas + '"placeholder="Piezas" class="swal2-input">',
+        '<input id="Precio" type="number"  min="1" value="' + this.productos[index].data.Precio + '" placeholder="Precio" class="swal2-input">' +
+        '<input id="Piezas" type="number"  min="1" value="' + this.productos[index].data.Piezas + '"placeholder="Piezas" class="swal2-input">',
       focusConfirm: false,
       showConfirmButton: true,
       showCancelButton: true,

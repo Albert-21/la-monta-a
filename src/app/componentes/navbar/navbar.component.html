@@ -15,6 +15,9 @@
       <a class="nav-link" *ngIf="auth.status==false"routerLink="/login"  >Iniciar Sesión</a>
     </li>
     <li class="nav-item">
+      <a class="nav-link" *ngIf="auth.status==true"routerLink="/inventario"  >Inventario</a>
+    </li>
+    <li class="nav-item">
       <a class="nav-link" *ngIf="auth.status==true"  routerLink="/" (click)="auth.cerrarSesion()">Cerrar Sesión</a>
     </li>
   </ul>

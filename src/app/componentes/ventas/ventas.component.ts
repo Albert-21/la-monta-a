@@ -63,7 +63,9 @@ export class VentasComponent implements OnInit {
    private totalVentas() {
      this.data_base.mostrarVentas().subscribe( (ventasSnapshot) => {
        this.totalVendido = 0
+       var fecha = format(new Date(),'DD/MM/YY')
        ventasSnapshot.forEach((ventasData:any) => {
+         if (ventasData.payload.doc.data().fecha === fecha)
           this.totalVendido += ventasData.payload.doc.data().totalVenta
          });
      });
@@ -632,6 +634,10 @@ mostrarVentas(idMESA:any){
         });
       });
     });
+  }
+
+  eliminarProductoHistorial(IdMesa:string,id:string){
+    this.data_base.borrarProductoMesa(IdMesa,id)
   }
 
 }

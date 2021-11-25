@@ -120,6 +120,8 @@
               <td> {{item.data.producto.data.Precio}} </td>
               <td> {{item.data.producto.data.Piezas}}</td>
               <td> ${{item.data.producto.subTotal}}</td>
+              <td><button type="submit" class="btn btn-danger productos-btn" (click)="eliminarProductoHistorial(IDmesa.value,item.id)" >Eliminar <i class="fa fa-trash"></i>
+              </button></td>
             </tr>
             </tbody>
           </table>
@@ -151,9 +153,6 @@
           <option>5</option>
           <option>6</option>
         </select>
-      </div>
-      <div class="row justify-content-center">
-        <button type="submit" class="btn-primary btn-sm">Calcular total vendido</button>
       </div>
       <div class="tabla-ventas-contenedor">
         <table class="table table-striped tabla-ventas">

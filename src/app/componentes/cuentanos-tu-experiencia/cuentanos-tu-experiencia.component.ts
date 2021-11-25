@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import {FirebaseService} from "../../services/firebase.service";
 import Swal from "sweetalert2";
 import {format} from "fecha";
-import {setupTestingRouter} from "@angular/router/testing";
 import {Router} from "@angular/router";
 
 @Component({
@@ -22,14 +21,15 @@ export class CuentanosTuExperienciaComponent implements OnInit {
     comentario:''
   }
 
-  constructor(private data_base:FirebaseService,private router: Router) {
-   this.mostrarComentarios()
+  constructor(private data_base:FirebaseService) {
+    this.mostrarComentarios()
   }
 
   ngOnInit(): void {
    this.mostrarComentarios()
   }
-  private mostrarComentarios(){
+
+  mostrarComentarios(){
     this.data_base.mostrarComentarios().subscribe((comentariosSnapshot) => {
       this.cometarios = []
       comentariosSnapshot.forEach((comentarioData: any) => {
@@ -40,7 +40,6 @@ export class CuentanosTuExperienciaComponent implements OnInit {
       });
     });
   }
-
   guardarComentario(nombre:string,ciudad:string,pais:string,comentario:string){
     this.data_base.agregarComentario({
                                                 fecha: format(new Date(),'DD/MM/YY'),

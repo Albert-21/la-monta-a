@@ -5,6 +5,7 @@ import {Producto} from "../models/producto.model";
 import {Mesa} from "../models/mesa.model";
 import {Venta} from "../models/venta.model";
 import {Comentario} from "../models/comentario.model";
+import Swal from "sweetalert2";
 
 
 @Injectable({
@@ -116,6 +117,42 @@ export class FirebaseService {
           this.totalVendido +=  ventasData.payload.doc.data().totalVenta
       });
     });
+  }
+
+  borrarProductoMesa(idMesa:string,id:string){
+    switch (idMesa) {
+      case '1':
+        this.productosMesa1.doc(id).delete().then(value => {
+          Swal.fire('Se elimino correctamente','',"success")
+        })
+        break;
+      case '2':
+        this.productosMesa2.doc(id).delete().then(value => {
+          Swal.fire('Se elimino correctamente','',"success")
+        })
+        break;
+      case '3':
+        this.productosMesa3.doc(id).delete().then(value => {
+          Swal.fire('Se elimino correctamente','',"success")
+        })
+        break;
+      case '4':
+        this.productosMesa4.doc(id).delete().then(value => {
+          Swal.fire('Se elimino correctamente','',"success")
+        })
+        break;
+      case '5':
+        this.productosMesa5.doc(id).delete().then(value => {
+          Swal.fire('Se elimino correctamente','',"success")
+        })
+        break;
+      case '6':
+        this.productosMesa6.doc(id).delete().then(value => {
+          Swal.fire('Se elimino correctamente','',"success")
+        })
+        break;
+    }
+
   }
 
 

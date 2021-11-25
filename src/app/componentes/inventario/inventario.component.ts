@@ -5,6 +5,7 @@ import {Producto} from "../../models/producto.model";
 import {FirebaseService} from '../../services/firebase.service'
 import {Observable} from "rxjs";
 import {DocumentChangeAction} from "@angular/fire/compat/firestore";
+import {format} from "fecha";
 
 @Component({
   selector: 'inventario-component',
@@ -29,8 +30,10 @@ export class InventarioComponent implements OnInit {
   private totalVentas() {
     this.data_base.mostrarVentas().subscribe( (ventasSnapshot) => {
       this.totalVendido = 0
+      var fecha = format(new Date(),'DD/MM/YY')
       ventasSnapshot.forEach((ventasData:any) => {
-        this.totalVendido += ventasData.payload.doc.data().totalVenta
+        if (ventasData.payload.doc.data().fecha === fecha)
+          this.totalVendido += ventasData.payload.doc.data().totalVenta
       });
     });
   }

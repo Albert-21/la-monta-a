@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {FirebaseService} from "../../services/firebase.service";
-import {Comentario} from "../../models/comentario.model";
 import Swal from "sweetalert2";
+import {format} from "fecha";
 
 @Component({
   selector: 'comentariosComponent',
@@ -26,14 +26,16 @@ export class ComentariosComponent implements OnInit {
 
   }
 
-private totalVentas() {
-  this.data_base.mostrarVentas().subscribe( (ventasSnapshot) => {
-    this.totalVendido = 0
-    ventasSnapshot.forEach((ventasData:any) => {
-      this.totalVendido += ventasData.payload.doc.data().totalVenta
+  private totalVentas() {
+    this.data_base.mostrarVentas().subscribe( (ventasSnapshot) => {
+      this.totalVendido = 0
+      var fecha = format(new Date(),'DD/MM/YY')
+      ventasSnapshot.forEach((ventasData:any) => {
+        if (ventasData.payload.doc.data().fecha === fecha)
+          this.totalVendido += ventasData.payload.doc.data().totalVenta
+      });
     });
-  });
-}
+  }
 
   mostrarComentarios(){
     this.data_base.mostrarComentarios().subscribe((comentariosSnapshot) => {

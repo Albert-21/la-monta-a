@@ -5,13 +5,13 @@
 export const environment = {
   production: true,
   firebase: {
-    apiKey: "AIzaSyDNcdrYVgKlTWSEWXMpIke54ajlnyRgHk4",
-    authDomain: "la-montania-prueba.firebaseapp.com",
-    databaseURL: "https://la-montania-prueba-default-rtdb.firebaseio.com",
-    projectId: "la-montania-prueba",
-    storageBucket: "la-montania-prueba.appspot.com",
-    messagingSenderId: "213882603735",
-    appId: "1:213882603735:web:ac14e581b7e2469ae10892"
+    apiKey: "AIzaSyDGBpURSTFhUw6E5wwmFXSUg2QUqWVySk0",
+    authDomain: "la-montana-f5982.firebaseapp.com",
+    databaseURL: "https://la-montana-f5982-default-rtdb.firebaseio.com",
+    projectId: "la-montana-f5982",
+    storageBucket: "la-montana-f5982.appspot.com",
+    messagingSenderId: "921190507635",
+    appId: "1:921190507635:web:386ee9dfefedd5d288b606"
   }
 
 };
